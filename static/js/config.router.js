@@ -71,7 +71,7 @@ angular.module('app')
                         function(response) {
                             console.log(response);
                             $scope.pageData = response;
-
+                            $scope.pageData.cover.source = $scope.pageData.cover.source.replace("/s720x720");
                             var promotable_posts = $scope.pageData.promotable_posts.data;
                             var insights = [];
                             $scope.pageData.promotable_posts['insights'] = insights;

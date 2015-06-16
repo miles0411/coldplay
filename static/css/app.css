@@ -25,7 +25,7 @@ body {
 .h4,
 .h5,
 .h6 {
-  margin: 0;
+  margin: 5px;
 }
 
 a {
@@ -36,7 +36,6 @@ a {
 
 a:hover,
 a:focus {
-  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -713,6 +712,8 @@ body {
 
 .app-aside {
   float: left;
+  position: fixed;
+  padding-bottom: 900px; 
 }
 
 .app-aside:before {
@@ -783,7 +784,7 @@ body {
 }
 
 .app-footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -820,6 +821,7 @@ body {
 .v-bottom {
   vertical-align: bottom !important;
   bottom: 0px;
+  position: fixed;
 }
 
 .vbox {
@@ -910,6 +912,7 @@ body {
   font-weight: 700;
   line-height: 50px;
   text-align: center;
+  padding-top: 25px;
 }
 
 .navbar-brand1 {
@@ -2147,7 +2150,7 @@ fieldset[disabled] .btn-black.active {
 }
 
 .btn-block {
-  margin-top: 80px;
+  margin-top: 200px;
   margin-bottom: 100px;
   padding-right: 12px;
   padding-left: 12px;
@@ -2914,6 +2917,10 @@ fieldset[disabled] .i-checks input + i:before {
   color: #58666e;
   background-color: #edf1f2;
 }
+.bg-light1 {
+  color: #ffffff;
+  background-color: #4d585a;
+}
 .bg-fb {
   color: #58666e;
   background-color: #3b5998;
@@ -3676,6 +3683,8 @@ fieldset[disabled] .i-checks input + i:before {
   color: #58666e;
   background-color: #fff;
 }
+.bg-pic {
+}
 
 .bg-white a {
   color: #363f44;
@@ -3725,7 +3734,7 @@ a.text-primary:hover {
 }
 
 .text-primary-lt {
-  color: #8278c2;
+  color: #FDEEA3;
 }
 
 .text-primary-lter {
@@ -3737,7 +3746,7 @@ a.text-primary:hover {
 }
 
 .text-primary-dker {
-  color: #564aa3;
+  color: #1cDBED;
 }
 
 a.bg-info:hover {
@@ -4145,7 +4154,12 @@ a.text-#000000:hover {
 }
 
 .wrapper {
-  padding: 15px;
+  padding: 10px;
+}
+
+.wrapper.pic {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .wrapper-md {
@@ -4358,7 +4372,7 @@ a.text-#000000:hover {
 }
 
 .m-xs {
-  margin: 5px;
+  margin: 0px;
 }
 
 .m-sm {
@@ -4463,6 +4477,7 @@ a.text-#000000:hover {
 
 .m-t-sm {
   margin-top: 10px;
+  margin-top: 35px;
 }
 
 .m-t {
@@ -4602,7 +4617,9 @@ a.text-#000000:hover {
 }
 
 .m-b {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 20px;
 }
 
 .m-b-md {
@@ -4945,6 +4962,9 @@ a.text-#000000:hover {
     clear: left;
   }
   .text-center-xs {
+    text-align: center;
+  }
+  .text-center1 {
     text-align: center;
   }
   .text-bottom-xs {

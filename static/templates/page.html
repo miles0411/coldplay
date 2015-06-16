@@ -10,18 +10,11 @@
             <div class="clear m-b">
               <div class="m-b m-t-sm">
                 <span class="h3 text-black">{{pageData.name}}</span>
+                <span class="h4 text-black">{{pageData.category}}    {{pageData.likes}} Likes the Page</span>
               </div>
               <p class="m-b">
                 <a href="{{pageData.link}}" target="_blank" class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-facebook"></i></a>
               </p>
-            </div>
-          </div>
-          <div class="col-sm-5">
-            <div class="pull-right pull-none-xs text-center">
-              <a href class="m-b m-t-sm">
-                <span class="h3 text-black">{{pageData.likes}}</span>
-                <small>Likes</small>
-              </a>
             </div>
           </div>
         </div>
@@ -73,7 +66,7 @@
             </div>
             <div class="m-b">
               <div class="h4" ng-hide="post.story !== undefined">{{post.from.name}} says: "{{post.message}}"</div>
-              <img src="{{post.picture}}" class="b b-a wrapper-xs bg-white img-responsive" ng-hide="post.picture == undefined"
+              <img src="{{post.picture}}" class="wrapper-pic img-responsive" ng-hide="post.picture == undefined"
               <div class="m-t-sm">
                 <a href class="text-muted m-xs"><i class="fa fa-moon-o" ng-show="{{post.is_published}} === false"></i></a>
                 <a href class="text-muted m-xs"><i class="fa fa-sun-o" ng-show="{{post.is_published}} === true"></i></a>
