@@ -76,7 +76,8 @@
               <img src="{{post.picture}}" class="b b-a wrapper-xs bg-white img-responsive" ng-hide="post.picture == undefined"
               <div class="m-t-sm">
                 <a href class="text-muted m-xs"><i class="icon-close" ng-show="{{post.is_published}} === false"></i></a>
-                <a href class="text-muted m-xs"><i class="icon-star"></i>{{pageData.promotable_posts.insights[$index].values[0].value}}</a>
+                <a href class="text-muted m-xs"><i class="icon-speech" ng-show="{{post.is_published}} === true"></i></a>
+                <a href class="text-muted m-xs"><i class="icon-star"></i> {{pageData.promotable_posts.insights[$index].values[0].value}}</a>
                 <!--<a href class="text-muted m-xs"><i class="icon-refresh"></i> 13</a>-->
               </div>
             </div>
