@@ -1,0 +1,152 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+  <div class="col " >
+    <div style="background:url({{pageData.cover.source}}) center center; background-size:cover">
+      <div class="wrapper-lg bg-white-opacity">
+        <div class="row m-t">
+          <div class="col-sm-7">
+            <a href class="thumb-lg pull-left m-r">
+              <img src="http://graph.facebook.com/{{pageId}}/picture?width=100" class="img-square">
+            </a>
+            <div class="clear m-b">
+              <div class="m-b m-t-sm">
+                <span class="h3 text-black">{{pageData.name}}</span>
+              </div>
+              <p class="m-b">
+                <a href="{{pageData.link}}" target="_blank" class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-facebook"></i></a>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="pull-right pull-none-xs text-center">
+              <a href class="m-b-md inline m">
+                <span class="h3 block font-bold">{{pageData.likes}}</span>
+                <small>Likes</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper bg-white b-b">
+      <ul class="nav nav-pills nav-sm">
+        <li class="active"><a href>Post</a></li>
+        <!--<li><a href>Profile</a></li>-->
+      </ul>
+    </div>
+    <div class="padder">      
+      <div class="streamline b-l b-info m-l-lg m-b padder-v">
+        <div ng-repeat="post in pageData.promotable_posts.data">
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <img src="http://graph.facebook.com/{{post.from.id}}/picture?type=square" class="img-circle" alt="{{pageData.picture.data.url}}">
+          </a>
+          <div class="m-l-lg">
+            <div class="m-b-xs">
+              <a href class="h4" ng-hide="post.story == undefined">{{post.story}}</a>
+              <span class="text-muted m-l-sm pull-right">
+                {{post.created_time | date:'MM/dd/yyyy @ h:mma'}}
+              </span>
+            </div>
+            <div class="m-b">
+              <div class="h4" ng-hide="post.story !== undefined">{{post.from.name}} says: "{{post.message}}"</div>
+              <img src="{{post.picture}}" class="b b-a wrapper-xs bg-white img-responsive" ng-hide="post.picture == undefined"
+              <div class="m-t-sm">
+                <a href class="text-muted m-xs"><i class="icon-refresh">{{post.is_published}}</i></a>
+                <a href class="text-muted m-xs"><i class="icon-star"></i>{{pageData.promotable_posts.insights[$index].values[0].value}}</a>
+                <!--<a href class="text-muted m-xs"><i class="icon-refresh"></i> 13</a>-->
+              </div>
+            </div>
+          </div>
+        </di
+        <!-- .comment-reply -->
+        <div class="m-l-lg">
+          <a class="pull-left thumb-sm avatar">
+            <img src="/static/images/a5.jpg" alt="...">
+          </a>          
+          <div class="m-l-xxl panel b-a">
+            <div class="panel-heading pos-rlt">
+              <span class="arrow left pull-up"></span>
+              <span class="text-muted m-l-sm pull-right">
+                10m ago
+              </span>
+              <a href>Mika Sam</a>
+              Report this comment is helpful                           
+            </div>
+          </div>
+        </div>
+        <!-- / .comment-reply -->
+        <div>
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <img src="/static/images/a6.jpg" class="img-circle" alt="...">
+          </a>
+          <div class="m-l-lg m-b-lg">
+            <div class="m-b-xs">
+              <a href class="h4">Jessica</a>
+              <span class="text-muted m-l-sm pull-right">
+                3h ago
+              </span>
+            </div>
+            <div class="m-b">
+              <div class="m-b">Cecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin </div>
+              <img src="/static/images/c5.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+              <div class="m-t-sm">
+                <a href class="text-muted m-xs"><i class="icon-action-redo"></i></a>
+                <a href class="text-muted m-xs"><i class="icon-star"></i></a>
+                <a href class="text-muted m-xs"><i class="icon-refresh"></i> 13</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <img src="/static/images/a4.jpg" class="img-circle" alt="...">
+          </a>
+          <div class="m-l-lg m-b-lg">
+            <div class="m-b-xs">
+              <a href class="h4">Fisio</a>
+              <span class="text-muted m-l-sm pull-right">
+                4h ago
+              </span>
+            </div>
+            <div>
+              <div class="m-b">Diam nonummy nibh euismod tincidunt ut laoreet. ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin </div>
+              <div class="panel panel-default m-t-md m-b-n-sm pos-rlt">
+                <form>
+                  <textarea class="form-control no-border" rows="3" placeholder="Your comment..."></textarea>
+                </form>
+                <div class="panel-footer bg-light lter">
+                  <button class="btn btn-info pull-right btn-sm">Comment</button>
+                  <ul class="nav nav-pills nav-sm">
+                    <li><a href><i class="fa fa-camera text-muted"></i></a></li>
+                    <li><a href><i class="fa fa-video-camera text-muted"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <img src="/static/images/a2.jpg" alt="...">
+          </a>          
+          <div class="m-l-lg panel b-a">
+            <div class="panel-heading pos-rlt b-b b-light">
+              <span class="arrow left"></span>
+              <a href>Peter</a>
+              <label class="label bg-light m-l-xs">VIP</label> 
+              <span class="text-muted m-l-sm pull-right">
+                9h ago
+              </span>
+            </div>
+            <div class="panel-body">
+              <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+              </blockquote>
+              <div>Lorem ipsum dolor sit amet, consecteter adipiscing elit...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
