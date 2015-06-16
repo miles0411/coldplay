@@ -50,7 +50,7 @@
               <div class="h4" ng-hide="post.story !== undefined">{{post.from.name}} says: "{{post.message}}"</div>
               <img src="{{post.picture}}" class="b b-a wrapper-xs bg-white img-responsive" ng-hide="post.picture == undefined"
               <div class="m-t-sm">
-                <a href class="text-muted m-xs"><i class="icon-refresh">{{post.is_published}}</i></a>
+                <a href class="text-muted m-xs"><i class="icon-close">{{post.is_published}}</i></a>
                 <a href class="text-muted m-xs"><i class="icon-star"></i>{{pageData.promotable_posts.insights[$index].values[0].value}}</a>
                 <!--<a href class="text-muted m-xs"><i class="icon-refresh"></i> 13</a>-->
               </div>
