@@ -18,8 +18,8 @@
           </div>
           <div class="col-sm-5">
             <div class="pull-right pull-none-xs text-center">
-              <a href class="m-b-md inline m">
-                <span class="h3 block text-black font-bold">{{pageData.likes}}</span>
+              <a href class="m-b m-t-sm">
+                <span class="h3 text-black">{{pageData.likes}}</span>
                 <small>Likes</small>
               </a>
             </div>
@@ -36,7 +36,7 @@
     <div class="padder wrapper bg-light b-b">      
       <div class="streamline b-l b-info m-l-lg m-b padder-v">
         <div>
-          <a class="pull-left thumb-sm avatar m-l-n-md">
+          <a class="pull-left thumb-sm bg-light avatar m-l-n-md">
             <img src="http://graph.facebook.com/{{pageId}}/picture?width=100" class="img-circle" alt="...">
           </a>
           <div class="m-l-lg m-b-lg">
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div ng-repeat="post in pageData.promotable_posts.data">
-          <a class="pull-left thumb-sm avatar m-l-n-md">
+          <a class="bg-light pull-left thumb-sm avatar m-l-n-md">
             <img src="http://graph.facebook.com/{{post.from.id}}/picture?type=square" class="img-circle" alt="{{pageData.picture.data.url}}">
           </a>
           <div class="m-l-lg">

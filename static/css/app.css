@@ -368,7 +368,7 @@ a.list-group-item.hover {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #f6f8f8;
+  background-color: #19a9d5;
 }
 
 .nav-tabs {
@@ -387,7 +387,7 @@ a.list-group-item.hover {
 }
 
 .nav-tabs > li.active > a {
-  border-bottom-color: #fff !important;
+  border-bottom-color: #19a9d5 !important;
 }
 
 .nav-tabs-alt .nav-tabs.nav-justified > li {
@@ -691,7 +691,7 @@ body {
   z-index: -1;
   display: block;
   width: inherit;
-  background-color: #edf1f2;
+  background-color: #3B5998;
   border: inherit;
   content: "";
 }
