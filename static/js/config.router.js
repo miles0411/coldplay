@@ -33,7 +33,7 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/app/dashboard');
+              .otherwise('/app/page');
           $stateProvider
               .state('app', {
                   abstract: true,

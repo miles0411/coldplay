@@ -8,10 +8,10 @@ html {
 
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
-  color: #453E3E;
+  color: #FFFFFF;
   background-color: transparent;
 }
 
@@ -783,7 +783,7 @@ body {
 }
 
 .app-footer {
-  position: relative;
+  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
@@ -819,7 +819,6 @@ body {
 
 .v-bottom {
   vertical-align: bottom !important;
-  bottom: 0px;
 }
 
 .vbox {
@@ -4942,9 +4941,6 @@ a.text-#000000:hover {
   }
   .text-center-xs {
     text-align: center;
-  }
-  .text-bottom-xs {
-    text-align: bottom;
   }
   .text-left-xs {
     text-align: left;

@@ -1,15 +1,17 @@
 <!-- list -->
+<h5></h5>
 <ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-lg">
+    <span>Managing Tools</span>
+  </li>
   <li ui-sref-active="active">
     <a ui-sref="app.dashboard">
       <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-      <span class="font-bold">Dashboard</span>
+      <span class="ng-scope">Dashboard</span>
     </a>
   </li>
-
-  <li class="line dk"></li>
-
-  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+  <h3></h3>
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-lg">
     <span>Pages</span>
   </li>
   <li ng-repeat="page in pages">

@@ -15,7 +15,7 @@ app.controller('SigninFormController', ['$scope', '$rootScope', '$http', '$state
         $facebook.api("/me").then(
         function(response) {
             $rootScope.isLoggedIn = true;
-            $location.path('/app/dashboard');
+            $location.path('/app/page');
             //console.log(response);
         },
         function(err) {
