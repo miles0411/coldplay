@@ -29,7 +29,7 @@ body {
 }
 
 a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
@@ -2986,7 +2986,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-dark a:hover {
-  color: #ffffff;
+  
 }
 
 .bg-dark a.list-group-item:hover,
