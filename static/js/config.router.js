@@ -67,7 +67,7 @@ angular.module('app')
                   controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location) {
                      $scope.pageId = $stateParams.pageId;
                       
-                      $facebook.api("/"+$scope.pageId+"?fields=promotable_posts,id,name,link,likes,cover,username").then(
+                      $facebook.api("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username").then(
                         function(response) {
                             console.log(response);
                             $scope.pageData = response;

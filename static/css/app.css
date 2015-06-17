@@ -4550,6 +4550,7 @@ a.text-#000000:hover {
 
 .m-r {
   margin-right: 15px;
+  margin-top: 40px;
 }
 
 .m-r-md {
@@ -4620,6 +4621,9 @@ a.text-#000000:hover {
   margin-bottom: 20px;
   padding-top: 5px;
   padding-bottom: 20px;
+}
+.m-bb {
+  padding-bottom: 10px;
 }
 
 .m-b-md {
