@@ -59,7 +59,7 @@
           </a>
           <div class="m-l-lg">
             <div class="m-b-xs">
-              <a href class="h4" ng-hide="post.story == undefined">{{post.story}}</a>
+              <div class="h4 ng-binding" ng-hide="post.story == undefined">{{post.story}}</div>
               <span class="text-muted m-l-sm pull-right">
                 {{post.created_time | date:'MM/dd/yyyy @ h:mma'}}
               </span>
