@@ -64,9 +64,24 @@ angular.module('app')
               .state('app.page', {
                   url: '/page/:pageId',
                   templateUrl: '/static/templates/page.html',
-                  controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location) {
+                  controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', '$cacheFactory', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location, $cacheFactory) {
                      $scope.pageId = $stateParams.pageId;
-                      
+                     
+                     $http({
+                        method: 'GET',
+                        url: '/page/:pageId',
+                        cache: true
+                      });
+                     var cache = $cacheFactory.get('$http');
+                     console.log(cache);
+                     var pageCache = cache.get("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username");
+                     console.log(pageCache);
+                     if(pageCache !== undefined) {
+                        $scope.pageData = pageCache;
+                        //return;
+                     }
+                      // Delete the cache entry for the 
+                      // previous request
                       $facebook.api("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username").then(
                         function(response) {
                             console.log(response);
@@ -86,6 +101,7 @@ angular.module('app')
                                   console.log("err");
                               });
                             }
+                            cache.put("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username", response);
                         },
                         function(err) {
                             console.log("err");
