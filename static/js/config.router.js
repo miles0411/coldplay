@@ -75,33 +75,86 @@ angular.module('app')
                      var cache = $cacheFactory.get('$http');
                      console.log(cache);
                      var pageCache = cache.get("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username");
+                     
                      console.log(pageCache);
                      if(pageCache !== undefined) {
                         $scope.pageData = pageCache;
-                        //return;
+                        
                      }
-                      // Delete the cache entry for the 
-                      // previous request
+
                       $facebook.api("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username").then(
                         function(response) {
                             console.log(response);
+                            cache.put("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username", reponse);
                             $scope.pageData = response;
-                            $scope.pageData.cover.source = $scope.pageData.cover.source.replace("/s720x720");
+                            $scope.pageData.cover.source = $scope.pageData.cover.source.replace(/\/[a-z][0-9]+x[0-9]+/, "");
                             var promotable_posts = $scope.pageData.promotable_posts.data;
-                            var insights = [];
-                            $scope.pageData.promotable_posts['insights'] = insights;
-                            for (var index = 0; index < promotable_posts.length; ++index) {
-                              var promotable_post = promotable_posts[index];
-                              $facebook.api("/"+promotable_post.id+"/insights/post_impressions").then(
-                                function(response) {
-                                  insights.push(response.data[0]);
-                                  console.log($scope.pageData.promotable_posts);
+                            //var insights = [];
+                            //$scope.pageData.promotable_posts['insights'] = insights;
+                           
+                            $facebook.api("/"+$scope.pageId+"?fields=feed").then(
+                              function(response) {
+                                
+                                console.log(response);
+                                for(var i = 0; i < response.feed.data.length; i++) {
+                                    if(response.feed.data[i].status_type == "wall_post") {
+                                      $scope.pageData.promotable_posts.data.push(response.feed.data[i]);
+                                    }
+                                }
+
+                                function compare(a,b) {
+                                  if(a.created_time <= b.created_time) {
+                                    return 1;
+                                  }
+                                  else{
+                                    return -1;
+                                  }
+                                  return 0;
+                                }
+
+                                $scope.pageData.promotable_posts.data.sort(compare);
+
+                                console.log($scope.pageData.promotable_posts.data);
                               },
                               function(err) {
-                                  console.log("err");
+                                    console.log("err");
                               });
+
+                            
+
+                            var count = 0;
+                            for (var index = 0; index < promotable_posts.length; ++index) {
+                              var promotable_post = promotable_posts[index];
+                              //var impression;
+                              //promotable_post.impression = "";
+                              //console.log($scope.pageData.promotable_posts.data);
+                              var insightCache = cache.get("/"+promotable_post.id+"/insights/post_impressions");
+                              if(insightCache !== undefined) {
+                                   $scope.pageData.promotable_posts.data[count]["impression"] = insightCache;
+                                   continue;
+                                  //$scope.pageData.promotable_posts.data[index] = promotable_post.impression;
+                                  //return;
+                              }
+                              
+                              $facebook.api("/"+promotable_post.id+"/insights/post_impressions").then(
+                              
+                                function(response) {
+                                    loadInsight(response.data[0]);
+                                    cache.put("/"+promotable_post.id+"/insights/post_impressions", response.data[0]);
+                                },
+                                function(err) {
+                                    console.log("err");
+                                });
+                                
+                                function loadInsight(aimpression) {
+                                  //console.log(count);
+                                  //promotable_post.impression = "";
+                                  //promotable_post.impression = aimpression
+                                  $scope.pageData.promotable_posts.data[count]["impression"] = aimpression;
+                                  //console.log($scope.pageData.promotable_posts.data[count]);
+                                  count++;
+                                }
                             }
-                            cache.put("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username", response);
                         },
                         function(err) {
                             console.log("err");
