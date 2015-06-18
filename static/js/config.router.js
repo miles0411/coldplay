@@ -85,7 +85,7 @@ angular.module('app')
                       $facebook.api("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username").then(
                         function(response) {
                             console.log(response);
-                            cache.put("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username", reponse);
+                            cache.put("/"+$scope.pageId+"?fields=promotable_posts,id,name,category,link,likes,cover,username", response);
                             $scope.pageData = response;
                             $scope.pageData.cover.source = $scope.pageData.cover.source.replace(/\/[a-z][0-9]+x[0-9]+/, "");
                             var promotable_posts = $scope.pageData.promotable_posts.data;
