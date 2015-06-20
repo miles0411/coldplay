@@ -33,7 +33,7 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/app/page/:pageId');
+              .otherwise('/app/page/179649465404172');
           $stateProvider
               .state('app', {
                   abstract: true,
@@ -167,7 +167,23 @@ angular.module('app')
                             //console.log(response);
                             cache.put("/"+$scope.pageId+"?fields=promotable_posts,feed,id,name,category,link,likes,cover,username", response);
                             $scope.pageData = response;
+
                             $scope.pageData.cover.source = $scope.pageData.cover.source.replace(/\/[a-z][0-9]+x[0-9]+/, "");
+                            
+                            var next = response.feed.paging.next;
+                              /*
+                              $facebook.api(response.feed.paging.next).then(
+                              function(response) {
+                                console.log(response);
+                                $scope.pageData.feed.data.concat(response.data[0]);
+                                console.log($scope.pageData.feed.data);
+                                next = response.paging.next;
+                              },
+                              function(err) {
+                                console.log("err");
+                              });
+                              */
+
                             var promotable_posts = $scope.pageData.promotable_posts.data;
                             //console.log(promotable_posts);
                             for(var i = 0; i < response.feed.data.length; i++) {
@@ -196,7 +212,7 @@ angular.module('app')
                               var promotable_post = promotable_posts[index];
                               console.log($scope.pageData.promotable_posts.data);
                               
-                              /*
+                              
                               var insightCache = cache.get("/"+promotable_post.id+"/insights/post_impressions");
                               
                               
@@ -210,7 +226,7 @@ angular.module('app')
                                     }
                                     continue;
                               }
-                              */
+
                               $facebook.api("/"+promotable_post.id+"/insights/post_impressions").then(
                               
                                 function(response) {
