@@ -68,9 +68,9 @@
             <div class="m-b">
               <div class="h4" ng-hide="post.story !== undefined">{{post.from.name}} says: "{{post.message}}"</div>
               <img src="{{post.picture}}" class="wrapper-pic img-responsive" ng-hide="post.picture == undefined"
-              <div class="m-t-sm">
-                <a href class="text-muted m-xs"><i class="fa fa-moon-o" ng-show="{{post.is_published}}"></i></a>
-                <a href class="text-muted m-xs"><i class="fa fa-sun-o" ng-show="{{post.is_published}}"></i></a>
+              <div class="m-t-sm" ng-show="{{post.status_type}} == wall_post">
+                <a href class="text-muted m-xs"><i class="fa fa-moon-o" ng-show="{{post.is_published}} === false"></i></a>
+                <a href class="text-muted m-xs"><i class="fa fa-sun-o" ng-show="{{post.is_published}} === true"></i></a>
                 <a href class="text-muted m-xs"><i class="icon-star"></i> {{post.impression.values[0].value}}</a>
                 <!--<a href class="text-muted m-xs"><i class="icon-refresh"></i> 13</a>-->
               </div>

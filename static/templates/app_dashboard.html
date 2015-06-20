@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
-            <div class="m-b-xs">1290 <span class="text-muted">items</span></div>
+            <div class="m-b-xs">{{pageData.likes}}<span class="text-muted">items</span></div>
             <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
               ui-jq="sparkline" 
               ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -39,7 +39,7 @@
           <div class="row row-sm text-center">
             <div class="col-xs-6">
               <div class="panel padder-v item">
-                <div class="h1 text-info font-thin h1">70{{pageData.likes}}</div>
+                <div class="h1 text-info font-thin h1">{{pageData.new_like_count}}</div>
                 <span class="text-muted text-xs">New Likes</span>
                 <div class="top text-right w-full">
                   <i class="fa fa-caret-down text-warning m-r-sm"></i>
@@ -48,7 +48,7 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-primary item">
-                <span class="text-white font-thin h1 block">930</span>
+                <span class="text-white font-thin h1 block">{{pageData.likes}}</span>
                 <span class="text-muted text-xs">Total Likes</span>
                 <span class="bottom text-right w-full">
                   <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
@@ -57,7 +57,7 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-info item">
-                <span class="text-white font-thin h1 block">432</span>
+                <span class="text-white font-thin h1 block">{{pageData.promotable_posts.data.length}}</span>
                 <span class="text-muted text-xs">Total Posts</span>
                 <span class="top text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
@@ -66,8 +66,8 @@
             </div>
             <div class="col-xs-6">
               <div class="panel padder-v item">
-                <div class="font-thin h1">129</div>
-                <span class="text-muted text-xs">Feeds</span>
+                <div class="font-thin h1">{{pageData.feed.data.length}}</div>
+                <span class="text-muted text-xs">Total Feeds</span>
                 <div class="bottom text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </div>
@@ -95,8 +95,7 @@
             <h4 class="font-thin m-t-none m-b text-muted">Latest Campaign</h4>
             <div ui-jq="plot" ui-refresh="showSpline" ui-options="
               [
-                { data: {{d0_1}}, label:'TV', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } },
-                { data: {{d0_2}}, label:'Mag', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } }
+                { data: {{pageData.thirtydaysImpression}}, label:'Daily Impression', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } }
               ], 
               {
                 colors: ['{{app.color.info}}', '{{app.color.primary}}'],
@@ -107,7 +106,7 @@
                 tooltip: true,
                 tooltipOpts: { content: 'Visits of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
               }
-            " style="height:246px" >
+            " style="height: 246px; padding: 0px; position: relative;" >
             </div>
           </div>
         </div>
@@ -122,7 +121,7 @@
           <span class="m-b block text-sm text-muted">Service report of this year (updated 1 hour ago)</span>
           <div ui-jq="plot" ui-options="
             [
-              { data: {{d4}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
+              { data: {{d0_1}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
             ], 
             {
               colors: ['{{app.color.light}}'],
