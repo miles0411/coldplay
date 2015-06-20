@@ -33,7 +33,7 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/app/dashboard/:pageId');
+              .otherwise('/app/page/');
           $stateProvider
               .state('app', {
                   abstract: true,
@@ -96,7 +96,7 @@ angular.module('app')
                         function(response) {
                            $scope.pageData = response;
 
-                           cache.put("/"+$scope.pageId+"?fields=id,feed,promotable_posts,name,category,link,likes,new_like_count,insights", response)''
+                           cache.put("/"+$scope.pageId+"?fields=id,feed,promotable_posts,name,category,link,likes,new_like_count,insights", response);
                         
                            $facebook.api("/"+$scope.pageId+"/insights/page_impressions/day?since="+thirtydaysAgo+"&until="+today).then(
                             function(response) {

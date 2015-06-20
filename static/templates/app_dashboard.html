@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="inline text-left">
-            <div class="m-b-xs">$30,000 <span class="text-muted">revenue</span></div>
+            <div class="m-b-xs">$30,000 <span class="text-muted">Budget</span></div>
             <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" 
               ui-jq="sparkline" 
               ui-options="{{data2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -117,8 +117,8 @@
       <div class="panel hbox hbox-auto-xs no-border">
         <div class="col wrapper">
           <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
-          <h4 class="font-thin m-t-none m-b-none text-primary-lt">Managed Services</h4>
-          <span class="m-b block text-sm text-muted">Service report of this year (updated 1 hour ago)</span>
+          <h4 class="font-thin m-t-none m-b-none text-primary-lt">Engagements</h4>
+          <span class="m-b block text-sm text-muted"> Fans Engagement of this month (updated 1 hour ago)</span>
           <div ui-jq="plot" ui-options="
             [
               { data: {{d0_1}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
@@ -136,21 +136,21 @@
           </div>
         </div>
         <div class="col wrapper-lg w-lg bg-light dk r-r">
-          <h4 class="font-thin m-t-none m-b">Reports</h4>
+          <h4 class="font-thin m-t-none m-b">Progress</h4>
           <div class="">
             <div class="">
               <span class="pull-right text-primary">60%</span>
-              <span>Consulting</span>
+              <span>Likes</span>
             </div>
             <progressbar value="60" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
             <div class="">
               <span class="pull-right text-info">35%</span>
-              <span>Online tutorials</span>
+              <span>Fans</span>
             </div>
             <progressbar value="35" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
             <div class="">
               <span class="pull-right text-warning">25%</span>
-              <span>EDU management</span>
+              <span>Budget</span>
             </div>
             <progressbar value="25" class="progress-xs m-t-sm bg-white" animate="true" type="warning"></progressbar>
           </div>
