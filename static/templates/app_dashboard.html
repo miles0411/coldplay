@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
-            <div class="m-b-xs">{{pageData.likes}}<span class="text-muted">items</span></div>
+            <div class="m-b-xs">{{pageData.likes}}<span class="text-muted"> items</span></div>
             <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
               ui-jq="sparkline" 
               ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -101,12 +101,12 @@
                 colors: ['{{app.color.info}}', '{{app.color.primary}}'],
                 series: { shadowSize: 3 },
                 xaxis:{ font: { color: '#a1a7ac' } },
-                yaxis:{ font: { color: '#a1a7ac' }, max:20 },
+                yaxis:{ font: { color: '#a1a7ac' }, max:70 },
                 grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
                 tooltip: true,
                 tooltipOpts: { content: 'Visits of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
               }
-            " style="height: 246px; padding: 0px; position: relative;" >
+            " style="height: 246px;" >
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@
           <span class="m-b block text-sm text-muted"> Fans Engagement of this month (updated 1 hour ago)</span>
           <div ui-jq="plot" ui-options="
             [
-              { data: {{d0_1}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
+              { data: {{pageData.thirtydaysImpression}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
             ], 
             {
               colors: ['{{app.color.light}}'],
