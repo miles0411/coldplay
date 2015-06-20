@@ -95,7 +95,9 @@ angular.module('app')
                       $facebook.api("/"+$scope.pageId+"?fields=id,feed,promotable_posts,name,category,link,likes,new_like_count,insights").then(
                         function(response) {
                            $scope.pageData = response;
-                           console.log("/"+$scope.pageId+"/insights/page_impressions/day?since="+thirtydaysAgo+"&until="+today);
+
+                           cache.put("/"+$scope.pageId+"?fields=id,feed,promotable_posts,name,category,link,likes,new_like_count,insights", response)''
+                        
                            $facebook.api("/"+$scope.pageId+"/insights/page_impressions/day?since="+thirtydaysAgo+"&until="+today).then(
                             function(response) {
 
@@ -112,7 +114,6 @@ angular.module('app')
                                
                                //$scope.d0_1 = [ [0,7],[1,6.5],[2,12.5],[3,7],[4,9],[5,6],[6,11],[7,6.5],[8,8],[9,7] ];
                                $scope.pageData.thirtydaysImpression = thirtydaysImpression;
-                               onsole.log($scope.pageData.thirtydaysImpression);
                             },
                             function(err) {
                                   console.log("err");
