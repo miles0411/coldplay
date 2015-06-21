@@ -88,12 +88,12 @@
         </div>
         <div class="col-md-7">
           <div class="panel wrapper">
-            <label class="i-switch bg-warning pull-right" ng-init="showSpline=false">
+            <label class="i-switch bg-warning pull-right" ng-init="showSpline=true">
               <input type="checkbox" ng-model="showSpline">
               <i></i>
             </label>
             <h4 class="font-thin m-t-none m-b text-muted">Latest Campaign</h4>
-            <div ui-jq="plot" ui-refresh="showSpline" ui-options="
+            <div ng-binding ui-jq="plot" ui-refresh="showSpline" ui-options="
               [
                 { data: {{pageData.thirtydaysImpression}}, label:'Daily Impression', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } }
               ], 
@@ -102,11 +102,11 @@
                 series: { shadowSize: 3 },
                 xaxis:{ font: { color: '#a1a7ac' } },
                 yaxis:{ font: { color: '#a1a7ac' }, max:70 },
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
+                grid: { hoverable: false, clickable: true, borderWidth: 0, color: '#dce5ec' },
                 tooltip: true,
                 tooltipOpts: { content: 'Visits of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
               }
-            " style="height: 246px;" >
+            " style="height: 246px; padding: 0px; position: relative;" >
             </div>
           </div>
         </div>

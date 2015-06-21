@@ -29,7 +29,7 @@
         anchor = document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0],
         jsLoader, cssLoader, templatesLoader,
         debug = false,
-        events = false;
+        events = true;
 
       // Let's get the list of loaded modules & components
       init(angular.element(window.document));
