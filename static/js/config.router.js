@@ -213,20 +213,19 @@ angular.module('app')
                               console.log($scope.pageData.promotable_posts.data);
                               
                               
-                              var insightCache = cache.get("/"+promotable_post.id+"/insights/post_impressions");
+                              //var insightCache = cache.get("/"+promotable_post.id+"/insights/post_impressions");
                               
-                              
+                              /*
                               if(insightCache !== undefined) {
                                    
                                    for(var i = 0; i < $scope.pageData.promotable_posts.data.length; ++i) {
                                         if($scope.pageData.promotable_posts.data[i].id == promotable_post.id) {
                                             $scope.pageData.promotable_posts.data[i]["impression"] = insightCache;
                                         }
-                    
                                     }
-                                    continue;
+                                    break;
                               }
-
+                              */
                               $facebook.api("/"+promotable_post.id+"/insights/post_impressions").then(
                               
                                 function(response) {
@@ -236,8 +235,10 @@ angular.module('app')
                                         if($scope.pageData.promotable_posts.data[i].id == id) {
                                             $scope.pageData.promotable_posts.data[i]["impression"] = response.data[0];
                                         }
+                                        //else{
+                                        //  cache.put("/"+promotable_post.id+"/insights/post_impressions", response.data[0]);
+                                        //}
                                     }
-                                    cache.put("/"+promotable_post.id+"/insights/post_impressions", response.data[0]);
                                 },
                                 function(err) {
                                     console.log("err");
