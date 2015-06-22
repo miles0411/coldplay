@@ -32,5 +32,5 @@ angular.module('app')
   .config(['$facebookProvider', function($facebookProvider){
     $facebookProvider.setAppId('1519388198281935'); // local development: port 8080
     //$facebookProvider.setAppId('516008265213610'); // production: fb-pages-manager.appspot.com
-    $facebookProvider.setPermissions("email,manage_pages,read_insights,publish_pages");
+    $facebookProvider.setPermissions("email,manage_pages,read_insights,publish_pages,publish_actions");
   }]);

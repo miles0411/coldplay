@@ -66,7 +66,7 @@ angular.module('app')
           navbarCollapseColor: 'bg-white-only',
           asideColor: 'bg-black',
           headerFixed: true,
-          asideFixed: false,
+          asideFixed: true,
           asideFolded: false,
           asideDock: false,
           container: false

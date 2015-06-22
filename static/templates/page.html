@@ -21,12 +21,11 @@
         </div>
       </div>
     </div>
-    <!--<div class="wrapper bg-white b-b">
+    <div class="wrapper bg-white b-b">
       <ul class="nav nav-pills nav-sm">
-        <li class="active"><a href >Post</a></li>
-        <!--<li><a href>Profile</a></li>
+        <li class="active"><a ng-click="post()">Post</a></li>
       </ul>
-    </div>-->
+    </div>
     <div class="padder wrapper bg-light b-b">      
       <div class="streamline b-l b-info m-l-lg m-b padder-v">
         <div>
@@ -43,10 +42,10 @@
             <div>
               <div class="panel panel-default m-t-md m-b-n-sm pos-rlt">
                 <form>
-                  <textarea class="form-control no-border" rows="3" placeholder="Say something..."></textarea>
+                  <textarea class="form-control no-border" rows="3" placeholder="Say something..." ng-model="message"></textarea>
                 </form>
                 <div class="panel-footer bg-light lter">
-                  <button class="btn btn-info pull-right btn-sm" ng-click="post()">Post</button>
+                  <button class="btn btn-info pull-right btn-sm" ng-click="post1()">Post</button>
                   <ul class="nav nav-pills nav-sm">
                   </ul>
                 </div>
