@@ -219,6 +219,7 @@ angular.module('app')
 
                                         var insightCache = cache.get("/" + promotable_post.id + "/insights/post_impressions");
 
+                                        /*
 
                                         if (insightCache !== undefined) {
 
@@ -230,7 +231,7 @@ angular.module('app')
                                             }
                                             continue;
                                         }
-
+                                        */
                                         $facebook.api("/" + promotable_post.id + "/insights/post_impressions").then(
 
                                             function(response) {
@@ -260,7 +261,7 @@ angular.module('app')
                                 }).then(
                                     function(response) {
                                         $scope.message = null;
-                                        $location.reload();
+                                        location.reload();
                                     },
                                     function(err) {
                                         console.log(err);
