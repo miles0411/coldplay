@@ -255,13 +255,16 @@ angular.module('app')
                             $scope.post1 = function() {
                                 
                                 console.log($scope.message);
+
                                 $facebook.api('/' + $scope.pageId + '/feed?access_token=' + $scope.pageData.access_token, 'POST', {
-                                    message: $scope.message
+                                    message: $scope.message,
+                                    published: $scope.isPublished;
                                 }).then(
                                     function(response) {
                                         console.log(response);
                                         $scope.message = null;
-                                        $location.reload();
+                                        //$scope.$broadcast("REFRESH");
+                                        $location.url('/page/'+ $scope.padeId);
                                     },
                                     function(err) {
                                         console.log(err);
