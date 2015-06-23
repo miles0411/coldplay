@@ -253,18 +253,14 @@ angular.module('app')
                                 });
 
                             $scope.post1 = function() {
-                                
-                                console.log($scope.message);
 
                                 $facebook.api('/' + $scope.pageId + '/feed?access_token=' + $scope.pageData.access_token, 'POST', {
                                     message: $scope.message,
-                                    published: $scope.isPublished;
+                                    published: $scope.isPublished
                                 }).then(
                                     function(response) {
-                                        console.log(response);
                                         $scope.message = null;
-                                        //$scope.$broadcast("REFRESH");
-                                        $location.url('/page/'+ $scope.padeId);
+                                        $location.reload();
                                     },
                                     function(err) {
                                         console.log(err);
