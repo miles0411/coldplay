@@ -25,25 +25,3 @@ angular.module('app', ['ngFacebook'])
      firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
    }());
 });
-
-/*var AppCtrl = function ($scope, $facebook) {
-  $scope.isLoggedIn = false;
-  $scope.login = function() {
-    alert("hi");
-    $facebook.login().then(function() {
-      refresh();
-    });
-  }
-  function refresh() {
-    $facebook.api("/me").then( 
-      function(response) {
-        $scope.welcomeMsg = "Welcome " + response.name;
-        $scope.isLoggedIn = true;
-      },
-      function(err) {
-        $scope.welcomeMsg = "Please log in";
-      });
-  }
-  
-  refresh();
-};*/
