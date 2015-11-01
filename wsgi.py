@@ -1,10 +1,11 @@
 from flask import Flask, request, redirect, render_template
+from flaskapp import app as application
 import os, jinja2
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.jinja_loader = jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
-
+virtenv = os.path.join(os.environ.get('OPENSHIFT_PYTHON_DIR','.'), 'virtenv')
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
