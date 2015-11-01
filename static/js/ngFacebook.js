@@ -2,8 +2,8 @@ angular.module('ngFacebook', [])
   .provider('$facebook', function() {
     var config = {
       permissions:    'email',
-      appId:          null,
-      version:        'v2.3',
+      appId:          '1519388198281935',
+      version:        'v2.5',
       customInit:     {}
     };
 
