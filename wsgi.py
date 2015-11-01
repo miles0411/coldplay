@@ -1,5 +1,4 @@
 from flask import Flask, request, redirect, render_template
-from flaskapp import app as application
 import os, jinja2
 
 app = Flask(__name__)
