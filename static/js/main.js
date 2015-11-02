@@ -25,6 +25,8 @@ angular.module('app')
                     },
                     function(err) {
                     });
+
+                $location.path('/app/chart')
                   /*
                   $facebook.api("/me/accounts?limit=999&access_token="+$rootScope.token).then(
                     function(response) {
