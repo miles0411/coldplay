@@ -207,7 +207,6 @@ angular.module('app')
                     .state('app.form.select', {
                       url: '/select',
                       templateUrl: '/static/templates/form_select.html',
-                      controller: 'SelectCtrl',
                       resolve: {
                           deps: ['ocLazyLoad',
                             function($ocLazyLoad){
@@ -222,7 +221,6 @@ angular.module('app')
                     .state('app.form.slider', {
                       url: '/slider',
                       templateUrl: '/static/templates/form_slider.html',
-                      controller: 'SliderCtrl',
                       resolve: {
                           deps: ['ocLazyLoad',
                             function( $ocLazyLoad ){
@@ -237,8 +235,6 @@ angular.module('app')
                     .state('app.form.editor', {
                       url: '/editor',
                       templateUrl: '/static/templates/form_editor.html',
-        
-                      controller: 'EditorCtrl',
                       resolve: {
                           deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
@@ -273,10 +269,7 @@ angular.module('app')
                                 cache: true
                             });
                             var cache = $cacheFactory.get('$http');
-                            console.log(cache);
                             var pageCache = cache.get("/" + $scope.pageId + "?fields=promotable_posts,feed,id,name,category,link,likes,cover,username,access_token");
-
-                            console.log(pageCache);
                             if (pageCache !== undefined) {
                                 $scope.pageData = pageCache;
 
@@ -284,28 +277,15 @@ angular.module('app')
 
                             $facebook.api("/" + $scope.pageId + "?fields=promotable_posts,feed,id,name,category,link,likes,cover,username,access_token").then(
                                 function(response) {
-                                    //console.log(response);
+
                                     cache.put("/" + $scope.pageId + "?fields=promotable_posts,feed,id,name,category,link,likes,cover,username,access_token", response);
                                     $scope.pageData = response;
-                                    console.log($scope.pageData.access_token);
                                     $scope.pageData.cover.source = $scope.pageData.cover.source.replace(/\/[a-z][0-9]+x[0-9]+/, "");
 
                                     var next = response.feed.paging.next;
-                                    /*
-                                    $facebook.api(response.feed.paging.next).then(
-                                    function(response) {
-                                      console.log(response);
-                                      $scope.pageData.feed.data.concat(response.data[0]);
-                                      console.log($scope.pageData.feed.data);
-                                      next = response.paging.next;
-                                    },
-                                    function(err) {
-                                      console.log("err");
-                                    });
-                                    */
 
                                     var promotable_posts = $scope.pageData.promotable_posts.data;
-                                    //console.log(promotable_posts);
+
                                     for (var i = 0; i < response.feed.data.length; i++) {
                                         if (response.feed.data[i].status_type == "wall_post") {
                                             response.feed.data[i]["is_published"] = true;
@@ -324,12 +304,11 @@ angular.module('app')
                                     }
 
                                     $scope.pageData.promotable_posts.data.sort(compare);
-                                    console.log($scope.pageData.promotable_posts.data);
 
                                     for (var index = 0; index < promotable_posts.length; ++index) {
 
                                         var promotable_post = promotable_posts[index];
-                                        console.log($scope.pageData.promotable_posts.data);
+
 
 
                                         var insightCache = cache.get("/" + promotable_post.id + "/insights/post_impressions");
@@ -360,12 +339,10 @@ angular.module('app')
                                                 cache.put("/" + promotable_post.id + "/insights/post_impressions", response.data[0]);
                                             },
                                             function(err) {
-                                                console.log("err");
                                             });
                                     }
                                 },
                                 function(err) {
-                                    console.log("err");
                                 });
 
                             $scope.post1 = function() {
@@ -391,8 +368,7 @@ angular.module('app')
                                     description: 'This is the content of the "description" field, below the caption.',
                                     message: '',
                                     from: $scope.pageId
-                                }, function(response){
-                                    console.log(response);                              
+                                }, function(response){                          
                                 });
                             };
                         }]
