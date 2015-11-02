@@ -14,7 +14,6 @@ angular.module('app')
         function(response) {
             if(response.status === 'connected') {
                 
-                console.log(response.authResponse.accessToken);
                 $rootScope.token = response.authResponse.accessToken;
               
                 $facebook.api("/me").then(
@@ -22,15 +21,12 @@ angular.module('app')
                         $scope.name = response.name;
                         $scope.uid = response.id;
                         $scope.email = response.email;
-                        console.log(response);
                     },
                     function(err) {
-                        console.log("please login");
                     });
 
                   $facebook.api("/me/accounts?limit=999&access_token="+$rootScope.token).then(
                     function(response) {
-                        console.log(response);
                         $scope.pages = response.data;
                         
                     },
@@ -47,7 +43,7 @@ angular.module('app')
     
       // config
       $scope.app = {
-        name: 'pageM',
+        name: 'Coldplay',
         version: '1.0',
         // for chart colors
         color: {
