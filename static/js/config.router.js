@@ -47,9 +47,9 @@ angular.module('app')
                       url: '/dashboard-v1',
                       templateUrl: '/static/templates/app_dashboard_v1.html',
                       resolve: {
-                        deps: ['$ocLazyLoad',
-                          function( $ocLazyLoad ){
-                            return $ocLazyLoad.load(['static/js/controllers/chart.js']);
+                        deps: ['uiload',
+                          function(uiload){
+                            return uiload.load(['static/js/controllers/chart.js']);
                         }]
                       }
                     })
@@ -67,9 +67,9 @@ angular.module('app')
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load('static/js/controllers/chart.js');
+                            deps: ['uiload',
+                                function(uiload) {
+                                    return uiload.load('static/js/controllers/chart.js');
                                 }
                             ]
                         }
@@ -94,11 +94,11 @@ angular.module('app')
                       url: '/grid',
                       templateUrl: '/static/templates/table_grid.html',
                       resolve: {
-                          deps: ['$ocLazyLoad',
-                            function( $ocLazyLoad ){
-                              return $ocLazyLoad.load('ngGrid').then(
+                          deps: ['uiLoad',
+                            function(uiLoad){
+                              return uiLoad.load('ngGrid').then(
                                   function(){
-                                      return $ocLazyLoad.load('js/controllers/grid.js');
+                                      return $ocLazyLoad.load('static/js/controllers/grid.js');
                                   }
                               );
                           }]
@@ -109,8 +109,8 @@ angular.module('app')
                       template: '<div ui-view class="fade-in"></div>',
                       resolve: {
                           deps: ['uiLoad',
-                            function( uiLoad){
-                              return uiLoad.load('js/controllers/form.js');
+                            function(uiLoad){
+                              return uiLoad.load('static/js/controllers/form.js');
                           }]
                       }
                     })
@@ -134,7 +134,7 @@ angular.module('app')
                             function( $ocLazyLoad){
                               return $ocLazyLoad.load('angularFileUpload').then(
                                   function(){
-                                     return $ocLazyLoad.load('js/controllers/file-upload.js');
+                                     return $ocLazyLoad.load('static/js/controllers/file-upload.js');
                                   }
                               );
                           }]
@@ -175,7 +175,7 @@ angular.module('app')
                       controller: 'SliderCtrl',
                       resolve: {
                           deps: ['$ocLazyLoad',
-                            function( $ocLazyLoad ){
+                            function($ocLazyLoad ){
                               return $ocLazyLoad.load('vr.directives.slider').then(
                                   function(){
                                       return $ocLazyLoad.load('js/controllers/slider.js');
@@ -190,7 +190,7 @@ angular.module('app')
                       controller: 'EditorCtrl',
                       resolve: {
                           deps: ['$ocLazyLoad',
-                            function( $ocLazyLoad ){
+                            function($ocLazyLoad ){
                               return $ocLazyLoad.load('textAngular').then(
                                   function(){
                                       return $ocLazyLoad.load('js/controllers/editor.js');
