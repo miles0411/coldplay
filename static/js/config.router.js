@@ -220,7 +220,32 @@ angular.module('app')
                         ]
                     }
                 })
-
+                .state('app.mail', {
+                    abstract: true,
+                    url: '/mail',
+                    templateUrl: 'tpl/mail.html',
+                    // use resolve to load other dependences
+                    resolve: {
+                        deps: ['uiLoad',
+                          function( uiLoad ){
+                            return uiLoad.load( ['js/app/mail/mail.js',
+                                                 'js/app/mail/mail-service.js',
+                                                 'vendor/libs/moment.min.js'] );
+                        }]
+                    }
+                })
+                .state('app.mail.list', {
+                    url: '/inbox/{fold}',
+                    templateUrl: 'tpl/mail.list.html'
+                })
+                .state('app.mail.detail', {
+                    url: '/{mailId:[0-9]{1,4}}',
+                    templateUrl: 'tpl/mail.detail.html'
+                })
+                .state('app.mail.compose', {
+                    url: '/compose',
+                    templateUrl: 'tpl/mail.new.html'
+                })
                 .state('layout', {
                         abstract: true,
                         url: '/layout',
