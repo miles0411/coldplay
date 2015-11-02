@@ -295,9 +295,9 @@ angular.module('app')
                         url: '/signin',
                         templateUrl: '/static/templates/page_signin.html',
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['static/js/controllers/signin.js']);
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['static/js/controllers/signin.js']);
                                 }
                             ]
                         }
@@ -313,9 +313,9 @@ angular.module('app')
                     templateUrl: '/static/templates/app_calendar.html',
                     // use resolve to load other dependences
                     resolve: {
-                        deps: ['$ocLazyLoad', 'uiLoad',
-                            function($ocLazyLoad, uiLoad) {
-                                return uiLoad.load(
+                        deps: ['$ocLazyLoad',
+                            function($ocLazyLoad) {
+                                return $ocLazyLoad.load(
                                     ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
                                         '/static/vendor/jquery/fullcalendar/theme.css',
                                         '/static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
@@ -349,9 +349,9 @@ angular.module('app')
                             }
                         },
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['static/js/controllers/vectormap.js']);
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['static/js/controllers/vectormap.js']);
                                 }
                             ]
                         }
@@ -378,9 +378,9 @@ angular.module('app')
                             }
                         },
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['static/js/controllers/tab.js']);
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['static/js/controllers/tab.js']);
                                 }
                             ]
                         }
@@ -394,9 +394,9 @@ angular.module('app')
                         url: '/note',
                         templateUrl: '/static/templates/apps_note.html',
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['js/app/note/note.js',
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['js/app/note/note.js',
                                         '/static/vendor/libs/moment.min.js'
                                     ]);
                                 }
@@ -407,9 +407,9 @@ angular.module('app')
                         url: '/contact',
                         templateUrl: '/static/templates/apps_contact.html',
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['js/app/contact/contact.js']);
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['js/app/contact/contact.js']);
                                 }
                             ]
                         }
