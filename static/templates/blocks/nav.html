@@ -20,13 +20,19 @@
       </li>
       <li ui-sref-active="active">
         <a ui-sref="app.dashboard-v1">
-          <span>Dashboard v1</span>
+          <span class="font-bold" translate="aside.nav.components.DASHBOARD-V1">Dashboard v1</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref="app.dashboard-v2">
           <b class="label bg-info pull-right">N</b>
-          <span>Dashboard v2</span>
+          <span class="font-bold" translate="aside.nav.components.DASHBOARD-V2">Dashboard v2</span>
+        </a>
+      </li>
+      <li ng-repeat="page in pages">
+        <a href="#/app/dashboard/{{page.id}}">
+          <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+          <span class="ng-scope">{{page.name}}</span>
         </a>
       </li>
     </ul>
