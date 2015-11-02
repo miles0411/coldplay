@@ -316,24 +316,6 @@ angular.module('app')
                             ]
                         }
                     })
-                    .state('app.weather', {
-                        url: '/weather',
-                        templateUrl: '/static/templates/apps_weather.html',
-                        resolve: {
-                            deps: ['ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load({
-                                        name: 'angular-skycons',
-                                        files: ['static/js/app/weather/skycons.js',
-                                            'static/vendor/libs/moment.min.js',
-                                            'static/js/app/weather/angular-skycons.js',
-                                            'staitc/js/app/weather/ctrl.js'
-                                        ]
-                                    });
-                                }
-                            ]
-                        }
-                    })
             }
         ]
     );
