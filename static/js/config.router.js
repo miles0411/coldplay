@@ -136,18 +136,106 @@ angular.module('app')
                         }
                     })
                     .state('app.form', {
-                      url: '/form',
-                      template: '<div ui-view class="fade-in"></div>',
+                        url: '/form',
+                        template: '<div ui-view class="fade-in"></div>',
+                        resolve: {
+                            deps: ['ocLazyLoad',
+                                function($ocLazyLoad){
+                                  return $ocLazyLoad.load('js/controllers/form.js');
+                                }
+                            ]
+                        }
+                    })
+                    .state('app.form.elements', {
+                        url: '/elements',
+                        templateUrl: '/static/templates/form_elements.html'
+                    })
+                    .state('app.form.validation', {
+                        url: '/validation',
+                        templateUrl: '/static/templates/form_validation.html'
+                    })
+                    .state('app.form.wizard', {
+                        url: '/wizard',
+                        templateUrl: '/static/templates/form_wizard.html'
+                    })
+                    .state('app.form.fileupload', {
+                      url: '/fileupload',
+                      templateUrl: '/static/templates/form_fileupload.html',
                       resolve: {
-                          deps: ['ocLazyLoad',
-                            function($ocLazyLoad){
-                              return $ocLazyLoad.load('js/controllers/form.js');
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad){
+                              return $ocLazyLoad.load('angularFileUpload').then(
+                                  function(){
+                                     return $ocLazyLoad.load('js/controllers/file-upload.js');
+                                  }
+                              );
+                          }]
+                      }
+                    })
+                    .state('app.form.imagecrop', {
+                      url: '/imagecrop',
+                      templateUrl: '/static/templates/form_imagecrop.html',
+                      resolve: {
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad){
+                              return $ocLazyLoad.load('ngImgCrop').then(
+                                  function(){
+                                     return $ocLazyLoad.load('js/controllers/imgcrop.js');
+                                  }
+                              );
+                          }]
+                      }
+                    })
+                    .state('app.form.select', {
+                      url: '/select',
+                      templateUrl: '/static/templates/form_select.html',
+                      controller: 'SelectCtrl',
+                      resolve: {
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad ){
+                              return $ocLazyLoad.load('ui.select').then(
+                                  function(){
+                                      return $ocLazyLoad.load('js/controllers/select.js');
+                                  }
+                              );
+                          }]
+                      }
+                    })
+                    .state('app.form.slider', {
+                      url: '/slider',
+                      templateUrl: '/static/templates/form_slider.html',
+                      controller: 'SliderCtrl',
+                      resolve: {
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad ){
+                              return $ocLazyLoad.load('vr.directives.slider').then(
+                                  function(){
+                                      return $ocLazyLoad.load('js/controllers/slider.js');
+                                  }
+                              );
+                          }]
+                      }
+                    })
+                    .state('app.form.editor', {
+                      url: '/editor',
+                      templateUrl: '/static/templates/form_editor.html',
+                      
+                      controller: 'EditorCtrl',
+                      resolve: {
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad ){
+                              return $ocLazyLoad.load('textAngular').then(
+                                  function(){
+                                      return $ocLazyLoad.load('js/controllers/editor.js');
+                                  }
+                              );
                           }]
                       }
                     })
                     .state('app.chart', {
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
+                        controller: 'ChartCtrl',
                         resolve: {
                             deps: ['ocLazyLoad',
                                 function($ocLazyLoad) {
@@ -323,8 +411,8 @@ angular.module('app')
                     templateUrl: '/static/templates/app_calendar.html',
                     // use resolve to load other dependences
                     resolve: {
-                        deps: ['$ocLazyLoad', 'ocLazyLoad',
-                            function($ocLazyLoad, uiLoad) {
+                        deps: ['$ocLazyLoad',
+                            function($ocLazyLoad) {
                                 return $ocLazyLoad.load(
                                     ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
                                         '/static/vendor/jquery/fullcalendar/theme.css',
@@ -406,7 +494,7 @@ angular.module('app')
                         resolve: {
                             deps: ['ocLazyLoad',
                                 function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/app/note/note.js',
+                                    return $ocLazyLoad.load(['static/js/app/note/note.js',
                                         '/static/vendor/libs/moment.min.js'
                                     ]);
                                 }
