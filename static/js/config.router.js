@@ -253,7 +253,6 @@ angular.module('app')
                     .state('app.chart', {
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
-                        controller: 'ChartCtrl',
                         resolve: {
                             deps: ['ocLazyLoad',
                                 function($ocLazyLoad) {
