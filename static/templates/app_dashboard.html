@@ -8,8 +8,8 @@
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-          <small class="text-muted">Welcome to {{name}} Coldplay</small>
+          <h1 class="m-n font-thin h3 text-black">Personal Dashboard</h1>
+          <small class="text-muted">Welcome {{name}}!</small>
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
@@ -48,8 +48,8 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-primary item">
-                <span class="text-white font-thin h1 block">{{pageData.likes}}</span>
-                <span class="text-muted text-xs">Total Likes</span>
+                <span class="text-white font-thin h1 block">100</span>
+                <span class="text-muted text-xs">Index A</span>
                 <span class="bottom text-right w-full">
                   <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
                 </span>
@@ -57,8 +57,8 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-info item">
-                <span class="text-white font-thin h1 block">{{pageData.promotable_posts.data.length}}</span>
-                <span class="text-muted text-xs">Total Posts</span>
+                <span class="text-white font-thin h1 block">20</span>
+                <span class="text-muted text-xs">Index B</span>
                 <span class="top text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </span>
@@ -66,8 +66,8 @@
             </div>
             <div class="col-xs-6">
               <div class="panel padder-v item">
-                <div class="font-thin h1">{{pageData.feed.data.length}}</div>
-                <span class="text-muted text-xs">Total Feeds</span>
+                <div class="font-thin h1">72</div>
+                <span class="text-muted text-xs">Index C/span>
                 <div class="bottom text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col dk padder-v r-r">
                   <div class="text-primary-dk font-thin h1"><span>$12,670</span></div>
-                  <span class="text-muted text-xs">Budget, 60% Reached</span>
+                  <span class="text-muted text-xs">Goal, 60% Reached</span>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@
               <input type="checkbox" ng-model="showSpline">
               <i></i>
             </label>
-            <h4 class="font-thin m-t-none m-b text-muted">Latest Campaign</h4>
+            <h4 class="font-thin m-t-none m-b text-muted">Index</h4>
             <div ng-binding ui-jq="plot" ui-refresh="showSpline" ui-options="
               [
                 { data: {{pageData.thirtydaysImpression}}, label:'Daily Impression', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } }
