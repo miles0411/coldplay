@@ -139,9 +139,9 @@ angular.module('app')
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load('static/js/controllers/chart.js');
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load('static/js/controllers/chart.js');
                                 }
                             ]
                         }
@@ -169,28 +169,13 @@ angular.module('app')
 
                             $facebook.api("/" + $scope.pageId + "?fields=promotable_posts,feed,id,name,category,link,likes,cover,username,access_token").then(
                                 function(response) {
-                                    //console.log(response);
                                     cache.put("/" + $scope.pageId + "?fields=promotable_posts,feed,id,name,category,link,likes,cover,username,access_token", response);
                                     $scope.pageData = response;
-                                    console.log($scope.pageData.access_token);
                                     $scope.pageData.cover.source = $scope.pageData.cover.source.replace(/\/[a-z][0-9]+x[0-9]+/, "");
 
                                     var next = response.feed.paging.next;
-                                    /*
-                                    $facebook.api(response.feed.paging.next).then(
-                                    function(response) {
-                                      console.log(response);
-                                      $scope.pageData.feed.data.concat(response.data[0]);
-                                      console.log($scope.pageData.feed.data);
-                                      next = response.paging.next;
-                                    },
-                                    function(err) {
-                                      console.log("err");
-                                    });
-                                    */
-
+        
                                     var promotable_posts = $scope.pageData.promotable_posts.data;
-                                    //console.log(promotable_posts);
                                     for (var i = 0; i < response.feed.data.length; i++) {
                                         if (response.feed.data[i].status_type == "wall_post") {
                                             response.feed.data[i]["is_published"] = true;
@@ -218,20 +203,6 @@ angular.module('app')
 
 
                                         var insightCache = cache.get("/" + promotable_post.id + "/insights/post_impressions");
-
-                                        /*
-
-                                        if (insightCache !== undefined) {
-
-                                            for (var i = 0; i < $scope.pageData.promotable_posts.data.length; ++i) {
-                                                if ($scope.pageData.promotable_posts.data[i].id == promotable_post.id) {
-                                                    $scope.pageData.promotable_posts.data[i]["impression"] = insightCache;
-                                                }
-
-                                            }
-                                            continue;
-                                        }
-                                        */
                                         $facebook.api("/" + promotable_post.id + "/insights/post_impressions").then(
 
                                             function(response) {
@@ -418,7 +389,7 @@ angular.module('app')
                         url: '/weather',
                         templateUrl: '/static/templates/apps_weather.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
+                            deps: ['ocLazyLoad',
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load({
                                         name: 'angular-skycons',
