@@ -25,10 +25,11 @@ angular.module('app')
                         $scope.birthday = response.birthday;
                         $scope.timezone = response.timezone;
                         $scope.pictureUrl = 'http://graph.facebook.com/'+ response.id + '/picture?width=150&type=square'
+                        $scope.pages = response;
                     },
                     function(err) {
                     });
-                  
+                /*
                 $facebook.api("/me/accounts?limit=999&access_token="+$rootScope.token).then(
                   function(response) {
                       $scope.pages = response.data;
@@ -36,7 +37,7 @@ angular.module('app')
                   },
                   function(err) {
                       console.log("please login");
-                  });
+                  });*/
                 $location.path('/app/profile')
             } else {
               $location.path('/access/signin');
