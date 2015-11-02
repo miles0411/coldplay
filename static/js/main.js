@@ -18,6 +18,7 @@ angular.module('app')
               
                 $facebook.api("/me").then(
                     function(response) {
+                        console.log(response);
                         $scope.name = response.name;
                         $scope.uid = response.id;
                         $scope.email = response.email;
