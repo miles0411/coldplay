@@ -9,10 +9,9 @@ app.jinja_loader = jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
-postgresDBURL='postgres://jfwlnoqvhypork:wiXIa8SXKakPG4zPCq8X8N7tA6@ec2-107-21-221-59.compute-1.amazonaws.com:5432/d4dlm1bf4irvif'
 
 urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ[postgresDBURL])
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 conn = psycopg2.connect(
     database=url.path[1:],
