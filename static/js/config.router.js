@@ -49,7 +49,7 @@ angular.module('app')
                       resolve: {
                         deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
-                            return $ocLazyLoad.load(['js/controllers/chart.js']);
+                            return $ocLazyLoad.load(['static/js/controllers/chart.js']);
                         }]
                       }
                     })
@@ -59,7 +59,7 @@ angular.module('app')
                       resolve: {
                         deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
-                            return $ocLazyLoad.load(['js/controllers/chart.js']);
+                            return $ocLazyLoad.load(['static/js/controllers/chart.js']);
                         }]
                       }
                     })
