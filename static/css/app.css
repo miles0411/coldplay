@@ -690,7 +690,7 @@ body {
   z-index: -1;
   display: block;
   width: inherit;
-  background-color: ##496D6D;
+  background-color: #496D6D;
   border: inherit;
   content: "";
 }
@@ -2923,7 +2923,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 .bg-fb {
   color: #58666e;
-  background-color: ##496D6D;
+  background-color: #496D6D;
 }
 
 .bg-light.lt,
