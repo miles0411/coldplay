@@ -36,7 +36,7 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/app/page/179649465404172');
+                    .otherwise('/app/chart');
                 $stateProvider
                     .state('app', {
                         abstract: true,
@@ -46,12 +46,6 @@ angular.module('app')
                     .state('app.dashboard-v1', {
                       url: '/dashboard-v1',
                       templateUrl: '/static/templates/app_dashboard_v1.html',
-                      resolve: {
-                        deps: ['uiload',
-                          function(uiload){
-                            return uiload.load(['static/js/controllers/chart.js']);
-                        }]
-                      }
                     })
                     .state('app.dashboard-v2', {
                       url: '/dashboard-v2',
@@ -105,6 +99,7 @@ angular.module('app')
                       }
                     })
                     .state('app.form', {
+                      abstract: true,
                       url: '/form',
                       template: '<div ui-view class="fade-in"></div>',
                       resolve: {
@@ -247,17 +242,6 @@ angular.module('app')
                                     return uiLoad.load(['static/js/controllers/vectormap.js']);
                                 }
                             ]
-                        }
-                    })
-                    .state('layout.mobile', {
-                        url: '/mobile',
-                        views: {
-                            '': {
-                                templateUrl: '/static/templates/layout_mobile.html'
-                            },
-                            'footer': {
-                                templateUrl: '/static/templates/layout_footer_mobile.html'
-                            }
                         }
                     })
                     .state('layout.app', {
