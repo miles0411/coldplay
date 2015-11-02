@@ -25,7 +25,6 @@ angular.module('app')
                         $scope.birthday = response.birthday;
                         $scope.timezone = response.timezone;
                         $scope.pictureUrl = 'http://graph.facebook.com/'+ response.id + '/picture?width=150&type=square'
-                        $scope.pages = response;
                     },
                     function(err) {
                     });
