@@ -74,7 +74,6 @@ angular.module('app')
                             ]
                         }
                     })
-              // table
                     .state('app.table', {
                       url: '/table',
                       template: '<div ui-view></div>'
@@ -140,29 +139,6 @@ angular.module('app')
                               );
                           }]
                       }
-                    })
-                    .state('lockme', {
-                        url: '/lockme',
-                        templateUrl: '/static/templates/page_lockme.html'
-                    })
-                    .state('access', {
-                        url: '/access',
-                        template: '<div ui-view class="fade-in-right-big smooth"></div>'
-                    })
-                    .state('access.signin', {
-                        url: '/signin',
-                        templateUrl: '/static/templates/page_signin.html',
-                        resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load(['static/js/controllers/signin.js']);
-                                }
-                            ]
-                        }
-                    })
-                    .state('access.404', {
-                        url: '/404',
-                        templateUrl: '/static/templates/page_404.html'
                     })
                     .state('app.form.imagecrop', {
                       url: '/imagecrop',
