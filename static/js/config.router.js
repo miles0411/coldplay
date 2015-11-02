@@ -51,9 +51,9 @@ angular.module('app')
                       url: '/dashboard-v2',
                       templateUrl: '/static/templates/app_dashboard_v2.html',
                       resolve: {
-                        deps: ['$ocLazyLoad',
-                          function( $ocLazyLoad ){
-                            return $ocLazyLoad.load(['static/js/controllers/chart.js']);
+                        deps: ['uiLoad',
+                          function(uiLoad){
+                            return uiLoad.load(['static/js/controllers/chart.js']);
                         }]
                       }
                     })
