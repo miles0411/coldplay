@@ -1,7 +1,7 @@
 angular.module('ngFacebook', [])
   .provider('$facebook', function() {
     var config = {
-      permissions:    'email,user_about_me,user_birthday,user_hometown,user_location,user_education_history,user_relationships,user_work_history'
+      permissions:    'email,user_about_me,user_birthday,user_hometown,user_location,user_education_history,user_relationships,user_work_history',
       appId:          '1519388198281935',
       version:        'v2.5',
       customInit:     {}
