@@ -18,16 +18,13 @@ angular.module('app')
               
                 $facebook.api("me?fields=name, birthday, age_range, gender, locale, timezone, updated_time, verified, email").then(
                     function(response) {
-                        console.log(response);
-                        console.log(response);
-                        var result = json_decode(file_get_contents(response));
-                        console.log(result);
                         $scope.name = response.name;
                         $scope.uid = response.id;
                         $scope.email = response.email;
                         $scope.gender = response.gender;
                         $scope.birthday = response.birthday;
                         $scope.timezone = response.timezone;
+                        $scope.pictureUrl = 'http://graph.facebook.com/'+ response.id + '/picture?width=150&type=square'
                     },
                     function(err) {
                     });
