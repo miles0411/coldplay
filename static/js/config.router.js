@@ -36,12 +36,16 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/signin');
+                    .otherwise('/access/signin);
                 $stateProvider
                     .state('app', {
                         abstract: true,
                         url: '/app',
                         templateUrl: '/static/templates/app.html'
+                    })
+                    .state('access', {
+                        url: '/access',
+                        template: '<div ui-view class="fade-in-right-big smooth"></div>'
                     })
                     .state('access.signin', {
                         url: '/signin',
