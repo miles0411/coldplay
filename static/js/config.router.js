@@ -36,12 +36,23 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/app/chart');
+                    .otherwise('/signin');
                 $stateProvider
                     .state('app', {
                         abstract: true,
                         url: '/app',
                         templateUrl: '/static/templates/app.html'
+                    })
+                    .state('access.signin', {
+                        url: '/signin',
+                        templateUrl: '/static/templates/page_signin.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/signin.js']);
+                                }
+                            ]
+                        }
                     })
                     .state('app.dashboard', {
                         url: '/dashboard/:pageId',
