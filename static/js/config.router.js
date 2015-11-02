@@ -135,12 +135,22 @@ angular.module('app')
                             ]
                         }
                     })
+                    .state('app.form', {
+                      url: '/form',
+                      template: '<div ui-view class="fade-in"></div>',
+                      resolve: {
+                          deps: ['ocLazyLoad',
+                            function($ocLazyLoad){
+                              return uiLoad.load('js/controllers/form.js');
+                          }]
+                      }
+                    })
                     .state('app.chart', {
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($oocLazyLoad) {
+                            deps: ['ocLazyLoad',
+                                function($ocLazyLoad) {
                                     return $ocLazyLoad.load('static/js/controllers/chart.js');
                                 }
                             ]
@@ -295,9 +305,9 @@ angular.module('app')
                         url: '/signin',
                         templateUrl: '/static/templates/page_signin.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
+                            deps: ['ocLazyLoad',
                                 function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['static/js/controllers/signin.js']);
+                                    return uiLoad.load(['static/js/controllers/signin.js']);
                                 }
                             ]
                         }
@@ -313,9 +323,9 @@ angular.module('app')
                     templateUrl: '/static/templates/app_calendar.html',
                     // use resolve to load other dependences
                     resolve: {
-                        deps: ['$ocLazyLoad',
-                            function($ocLazyLoad) {
-                                return $ocLazyLoad.load(
+                        deps: ['$ocLazyLoad', 'uiLoad',
+                            function($ocLazyLoad, uiLoad) {
+                                return uiLoad.load(
                                     ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
                                         '/static/vendor/jquery/fullcalendar/theme.css',
                                         '/static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
@@ -349,9 +359,9 @@ angular.module('app')
                             }
                         },
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['static/js/controllers/vectormap.js']);
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/vectormap.js']);
                                 }
                             ]
                         }
@@ -378,9 +388,9 @@ angular.module('app')
                             }
                         },
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['static/js/controllers/tab.js']);
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/tab.js']);
                                 }
                             ]
                         }
@@ -394,9 +404,9 @@ angular.module('app')
                         url: '/note',
                         templateUrl: '/static/templates/apps_note.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/app/note/note.js',
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['js/app/note/note.js',
                                         '/static/vendor/libs/moment.min.js'
                                     ]);
                                 }
@@ -407,9 +417,9 @@ angular.module('app')
                         url: '/contact',
                         templateUrl: '/static/templates/apps_contact.html',
                         resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/app/contact/contact.js']);
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['js/app/contact/contact.js']);
                                 }
                             ]
                         }
