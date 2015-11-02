@@ -36,7 +36,7 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/app/chart');
+                    .otherwise('/app/page/179649465404172');
                 $stateProvider
                     .state('app', {
                         abstract: true,
@@ -47,7 +47,7 @@ angular.module('app')
                       url: '/dashboard-v1',
                       templateUrl: '/static/templates/app_dashboard_v1.html',
                       resolve: {
-                        deps: ['ocLazyLoad',
+                        deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
                             return $ocLazyLoad.load(['js/controllers/chart.js']);
                         }]
@@ -57,7 +57,7 @@ angular.module('app')
                       url: '/dashboard-v2',
                       templateUrl: '/static/templates/app_dashboard_v2.html',
                       resolve: {
-                        deps: ['ocLazyLoad',
+                        deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
                             return $ocLazyLoad.load(['js/controllers/chart.js']);
                         }]
@@ -67,7 +67,7 @@ angular.module('app')
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
                         resolve: {
-                            deps: ['ocLazyLoad',
+                            deps: ['$ocLazyLoad',
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load('static/js/controllers/chart.js');
                                 }
@@ -95,7 +95,7 @@ angular.module('app')
                       url: '/grid',
                       templateUrl: '/static/templates/table_grid.html',
                       resolve: {
-                          deps: ['ocLazyLoad',
+                          deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
                               return $ocLazyLoad.load('ngGrid').then(
                                   function(){
@@ -131,8 +131,8 @@ angular.module('app')
                       url: '/fileupload',
                       templateUrl: '/static/templates/form_fileupload.html',
                       resolve: {
-                          deps: ['ocLazyLoad',
-                            function($ocLazyLoad){
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad){
                               return $ocLazyLoad.load('angularFileUpload').then(
                                   function(){
                                      return $ocLazyLoad.load('js/controllers/file-upload.js');
@@ -153,9 +153,9 @@ angular.module('app')
                         url: '/signin',
                         templateUrl: '/static/templates/page_signin.html',
                         resolve: {
-                            deps: ['ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['static/js/controllers/signin.js']);
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/signin.js']);
                                 }
                             ]
                         }
@@ -168,8 +168,8 @@ angular.module('app')
                       url: '/imagecrop',
                       templateUrl: '/static/templates/form_imagecrop.html',
                       resolve: {
-                          deps: ['ocLazyLoad',
-                            function($ocLazyLoad){
+                          deps: ['$ocLazyLoad',
+                            function( $ocLazyLoad){
                               return $ocLazyLoad.load('ngImgCrop').then(
                                   function(){
                                      return $ocLazyLoad.load('js/controllers/imgcrop.js');
@@ -183,7 +183,7 @@ angular.module('app')
                       templateUrl: '/static/templates/form_select.html',
                       controller: 'SelectCtrl',
                       resolve: {
-                          deps: ['ocLazyLoad',
+                          deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
                               return $ocLazyLoad.load('ui.select').then(
                                   function(){
@@ -198,7 +198,7 @@ angular.module('app')
                       templateUrl: '/static/templates/form_slider.html',
                       controller: 'SliderCtrl',
                       resolve: {
-                          deps: ['ocLazyLoad',
+                          deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
                               return $ocLazyLoad.load('vr.directives.slider').then(
                                   function(){
@@ -213,7 +213,7 @@ angular.module('app')
                       templateUrl: '/static/templates/form_editor.html',
                       controller: 'EditorCtrl',
                       resolve: {
-                          deps: ['ocLazyLoad',
+                          deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
                               return $ocLazyLoad.load('textAngular').then(
                                   function(){
@@ -223,31 +223,132 @@ angular.module('app')
                           }]
                       }
                     })
-                    .state('app.calendar', {
-                        url: '/calendar',
-                        templateUrl: '/static/templates/app_calendar.html',
-                        // use resolve to load other dependences
+
+                // fullCalendar
+                .state('app.calendar', {
+                    url: '/calendar',
+                    templateUrl: '/static/templates/app_calendar.html',
+                    // use resolve to load other dependences
+                    resolve: {
+                        deps: ['$ocLazyLoad', 'uiLoad',
+                            function($ocLazyLoad, uiLoad) {
+                                return uiLoad.load(
+                                    ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
+                                        '/static/vendor/jquery/fullcalendar/theme.css',
+                                        '/static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
+                                        '/static/vendor/libs/moment.min.js',
+                                        '/static/vendor/jquery/fullcalendar/fullcalendar.min.js',
+                                        'js/app/calendar/calendar.js'
+                                    ]
+                                ).then(
+                                    function() {
+                                        return $ocLazyLoad.load('ui.calendar');
+                                    }
+                                )
+                            }
+                        ]
+                    }
+                })
+
+                .state('layout', {
+                        abstract: true,
+                        url: '/layout',
+                        templateUrl: '/static/templates/layout.html'
+                    })
+                    .state('layout.fullwidth', {
+                        url: '/fullwidth',
+                        views: {
+                            '': {
+                                templateUrl: '/static/templates/layout_fullwidth.html'
+                            },
+                            'footer': {
+                                templateUrl: '/static/templates/layout_footer_fullwidth.html'
+                            }
+                        },
                         resolve: {
-                            deps: ['$ocLazyLoad', 'uiLoad',
-                                function($ocLazyLoad, $uiLoad) {
-                                    return $ocLazyLoad.load(
-                                        ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
-                                            '/static/vendor/jquery/fullcalendar/theme.css',
-                                            '/static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
-                                            '/static/vendor/libs/moment.min.js',
-                                            '/static/vendor/jquery/fullcalendar/fullcalendar.min.js',
-                                            'js/app/calendar/calendar.js'
-                                        ]
-                                    ).then(
-                                        function() {
-                                            return $ocLazyLoad.load('ui.calendar');
-                                        }
-                                    )
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/vectormap.js']);
                                 }
                             ]
                         }
                     })
-
+                    .state('layout.mobile', {
+                        url: '/mobile',
+                        views: {
+                            '': {
+                                templateUrl: '/static/templates/layout_mobile.html'
+                            },
+                            'footer': {
+                                templateUrl: '/static/templates/layout_footer_mobile.html'
+                            }
+                        }
+                    })
+                    .state('layout.app', {
+                        url: '/app',
+                        views: {
+                            '': {
+                                templateUrl: '/static/templates/layout_app.html'
+                            },
+                            'footer': {
+                                templateUrl: '/static/templates/layout_footer_fullwidth.html'
+                            }
+                        },
+                        resolve: {
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['static/js/controllers/tab.js']);
+                                }
+                            ]
+                        }
+                    })
+                    .state('apps', {
+                        abstract: true,
+                        url: '/apps',
+                        templateUrl: '/static/templates/layout.html'
+                    })
+                    .state('apps.note', {
+                        url: '/note',
+                        templateUrl: '/static/templates/apps_note.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['js/app/note/note.js',
+                                        '/static/vendor/libs/moment.min.js'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    .state('apps.contact', {
+                        url: '/contact',
+                        templateUrl: '/static/templates/apps_contact.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function(uiLoad) {
+                                    return uiLoad.load(['js/app/contact/contact.js']);
+                                }
+                            ]
+                        }
+                    })
+                    .state('app.weather', {
+                        url: '/weather',
+                        templateUrl: '/static/templates/apps_weather.html',
+                        resolve: {
+                            deps: ['ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        name: 'angular-skycons',
+                                        files: ['js/app/weather/skycons.js',
+                                            '/static/vendor/libs/moment.min.js',
+                                            'js/app/weather/angular-skycons.js',
+                                            'js/app/weather/ctrl.js'
+                                        ]
+                                    });
+                                }
+                            ]
+                        }
+                    })
             }
         ]
     );
