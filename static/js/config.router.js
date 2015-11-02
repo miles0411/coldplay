@@ -286,32 +286,6 @@ angular.module('app')
                           }]
                       }
                     })
-
-                // fullCalendar
-                .state('app.calendar', {
-                    url: '/calendar',
-                    templateUrl: '/static/templates/app_calendar.html',
-                    // use resolve to load other dependences
-                    resolve: {
-                        deps: ['$ocLazyLoad', 'uiLoad',
-                            function($ocLazyLoad, uiLoad) {
-                                return uiLoad.load(
-                                    ['static/vendor/jquery/fullcalendar/fullcalendar.css',
-                                        'static/vendor/jquery/fullcalendar/theme.css',
-                                        'static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
-                                        'static/vendor/libs/moment.min.js',
-                                        'static/vendor/jquery/fullcalendar/fullcalendar.min.js',
-                                        'static/js/app/calendar/calendar.js'
-                                    ]
-                                ).then(
-                                    function() {
-                                        return $ocLazyLoad.load('ui.calendar');
-                                    }
-                                )
-                            }
-                        ]
-                    }
-                })
                 .state('app.mail', {
                     abstract: true,
                     url: '/mail',
