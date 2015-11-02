@@ -5,7 +5,15 @@
     <span translate="aside.nav.your_stuff.YOUR_STUFF">Your Stuff</span>
   </li>  
   <li>
-    <a ui-sref="app.page.profile">
+
+  <li ng-repeat="page in pages">
+    <a href="#/app/profile/{{page.id}}">
+      <i class="icon-user icon text-success-lter"></i>
+      <b class="badge bg-success pull-right">30%</b>
+      <span class="ng-scope">Profile</span>
+    </a>
+   </li>
+    <a ui-sref="app.profile">
       <i class="icon-user icon text-success-lter"></i>
       <b class="badge bg-success pull-right">30%</b>
       <span translate="aside.nav.your_stuff.PROFILE">Profile</span>

@@ -59,21 +59,7 @@ angular.module('app')
                         }
                     })
                     .state('app.profile', {
-                        url: '/profile',
-                        templateUrl: '/static/templates/app_dashboard.html',
-                        controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', '$cacheFactory', 
-                          function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location, $cacheFactory) {}
-                        ],
-                        resolve: {
-                            deps: ['$ocLazyLoad',
-                                function($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['static/js/controllers/chart.js']);
-                                }
-                            ]
-                        }
-                    })
-                    .state('app.dashboard', {
-                        url: '/dashboard/:pageId',
+                        url: '/profile/:pageId',
                         templateUrl: '/static/templates/app_dashboard.html',
                         controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', '$cacheFactory', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location, $cacheFactory) {
 
