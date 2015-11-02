@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
-            <div class="m-b-xs">{{pageData.likes}}<span class="text-muted"> items</span></div>
+            <div class="m-b-xs">5<span class="text-muted"> items</span></div>
             <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
               ui-jq="sparkline" 
               ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="inline text-left">
-            <div class="m-b-xs">$30,000 <span class="text-muted">Budget</span></div>
+            <div class="m-b-xs">$3,000 <span class="text-muted">Participants</span></div>
             <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" 
               ui-jq="sparkline" 
               ui-options="{{data2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -39,8 +39,8 @@
           <div class="row row-sm text-center">
             <div class="col-xs-6">
               <div class="panel padder-v item">
-                <div class="h1 text-info font-thin h1">{{pageData.new_like_count}}</div>
-                <span class="text-muted text-xs">New Likes</span>
+                <div class="h1 text-info font-thin h1">{{gender}}</div>
+                <span class="text-muted text-xs">Gender</span>
                 <div class="top text-right w-full">
                   <i class="fa fa-caret-down text-warning m-r-sm"></i>
                 </div>
@@ -67,7 +67,7 @@
             <div class="col-xs-6">
               <div class="panel padder-v item">
                 <div class="font-thin h1">72</div>
-                <span class="text-muted text-xs">Index C/span>
+                <span class="text-muted text-xs">Index C</span>
                 <div class="bottom text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </div>
