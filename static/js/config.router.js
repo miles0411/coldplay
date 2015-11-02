@@ -204,12 +204,12 @@ angular.module('app')
                         deps: ['$ocLazyLoad', 'uiLoad',
                             function($ocLazyLoad, uiLoad) {
                                 return uiLoad.load(
-                                    ['/static/vendor/jquery/fullcalendar/fullcalendar.css',
-                                        '/static/vendor/jquery/fullcalendar/theme.css',
-                                        '/static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
-                                        '/static/vendor/libs/moment.min.js',
-                                        '/static/vendor/jquery/fullcalendar/fullcalendar.min.js',
-                                        'js/app/calendar/calendar.js'
+                                    ['static/vendor/jquery/fullcalendar/fullcalendar.css',
+                                        'static/vendor/jquery/fullcalendar/theme.css',
+                                        'static/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
+                                        'static/vendor/libs/moment.min.js',
+                                        'static/vendor/jquery/fullcalendar/fullcalendar.min.js',
+                                        'static/js/app/calendar/calendar.js'
                                     ]
                                 ).then(
                                     function() {
@@ -223,28 +223,28 @@ angular.module('app')
                 .state('app.mail', {
                     abstract: true,
                     url: '/mail',
-                    templateUrl: 'tpl/mail.html',
+                    templateUrl: '/static/templates/mail.html',
                     // use resolve to load other dependences
                     resolve: {
                         deps: ['uiLoad',
                           function( uiLoad ){
-                            return uiLoad.load( ['js/app/mail/mail.js',
-                                                 'js/app/mail/mail-service.js',
-                                                 'vendor/libs/moment.min.js'] );
+                            return uiLoad.load( ['static/js/app/mail/mail.js',
+                                                 'static/js/app/mail/mail-service.js',
+                                                 'static/vendor/libs/moment.min.js'] );
                         }]
                     }
                 })
                 .state('app.mail.list', {
                     url: '/inbox/{fold}',
-                    templateUrl: 'tpl/mail.list.html'
+                    templateUrl: '/static/templates/mail.list.html'
                 })
                 .state('app.mail.detail', {
                     url: '/{mailId:[0-9]{1,4}}',
-                    templateUrl: 'tpl/mail.detail.html'
+                    templateUrl: '/static/templates/mail.detail.html'
                 })
                 .state('app.mail.compose', {
                     url: '/compose',
-                    templateUrl: 'tpl/mail.new.html'
+                    templateUrl: '/static/templates/mail.new.html'
                 })
                 .state('layout', {
                         abstract: true,
@@ -298,8 +298,8 @@ angular.module('app')
                         resolve: {
                             deps: ['uiLoad',
                                 function(uiLoad) {
-                                    return uiLoad.load(['js/app/note/note.js',
-                                        '/static/vendor/libs/moment.min.js'
+                                    return uiLoad.load(['static/js/app/note/note.js',
+                                        'static/vendor/libs/moment.min.js'
                                     ]);
                                 }
                             ]
@@ -307,11 +307,11 @@ angular.module('app')
                     })
                     .state('apps.contact', {
                         url: '/contact',
-                        templateUrl: '/static/templates/apps_contact.html',
+                        templateUrl: 'static/templates/apps_contact.html',
                         resolve: {
                             deps: ['uiLoad',
                                 function(uiLoad) {
-                                    return uiLoad.load(['js/app/contact/contact.js']);
+                                    return uiLoad.load(['static/js/app/contact/contact.js']);
                                 }
                             ]
                         }
@@ -324,10 +324,10 @@ angular.module('app')
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load({
                                         name: 'angular-skycons',
-                                        files: ['js/app/weather/skycons.js',
-                                            '/static/vendor/libs/moment.min.js',
-                                            'js/app/weather/angular-skycons.js',
-                                            'js/app/weather/ctrl.js'
+                                        files: ['static/js/app/weather/skycons.js',
+                                            'static/vendor/libs/moment.min.js',
+                                            'static/js/app/weather/angular-skycons.js',
+                                            'staitc/js/app/weather/ctrl.js'
                                         ]
                                     });
                                 }
