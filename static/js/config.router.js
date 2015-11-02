@@ -59,7 +59,7 @@ angular.module('app')
                         }
                     })
                     .state('app.profile', {
-                        url: '/profile/:pageId',
+                        url: '/profile/',
                         templateUrl: '/static/templates/app_dashboard.html',
                         controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', '$cacheFactory', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location, $cacheFactory) {
 

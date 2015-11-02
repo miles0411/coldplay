@@ -7,7 +7,7 @@
   <li>
 
   <li ng-repeat="page in pages">
-    <a href="#/app/profile/{{page.id}}">
+    <a href="#/app/profile/">
       <i class="icon-user icon text-success-lter"></i>
       <b class="badge bg-success pull-right">30%</b>
       <span class="ng-scope">Profile</span>
@@ -32,13 +32,6 @@
 
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span translate="aside.nav.HEADER">Navigation</span>
-  </li>
-
-  <li ng-repeat="page in pages">
-    <a href="#/app/dashboard/{{page.id}}">
-      <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-      <span class="ng-scope">{{page.name}}</span>
-    </a>
   </li>
 
   <li ui-sref-active="active">
