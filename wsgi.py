@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, render_template
 import os, jinja2
-import psycopg2
-import urlparse
+#import psycopg2
+#import urlparse
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -9,7 +9,7 @@ app.jinja_loader = jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
-
+'''
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -20,7 +20,7 @@ conn = psycopg2.connect(
     host=url.hostname,
     port=url.port
 )
-
+'''
 @app.route('/')
 def hello():
     return render_template('index.html')
