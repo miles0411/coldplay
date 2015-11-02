@@ -31,50 +31,69 @@
       <span class="ng-scope">{{page.name}}</span>
     </a>
   </li>
+
   <li ui-sref-active="active">
-    <a ui-sref="app.mail.list">
-      <b class="badge bg-info pull-right">9</b>
-      <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
-      <span class="font-bold" translate="aside.nav.EMAIL">Email</span>
+    <a ui-sref="app.chart">
+      <i class="glyphicon glyphicon-signal"></i>
+      <span translate="aside.nav.components.CHART">Chart</span>
     </a>
   </li>
-  <li>
-    <a href class="auto">
-      <span class="pull-right text-muted">
-        <i class="fa fa-fw fa-angle-right text"></i>
-        <i class="fa fa-fw fa-angle-down text-active"></i>
-      </span>
-      <i class="glyphicon glyphicon-th-large icon text-success"></i>
-      <span class="font-bold">Apps</span>
-    </a>
+  <li ng-class="{active:$state.includes('app.form')}">
+  <a href class="auto">
+    <span class="pull-right text-muted">
+      <i class="fa fa-fw fa-angle-right text"></i>
+      <i class="fa fa-fw fa-angle-down text-active"></i>
+    </span>
+    <i class="glyphicon glyphicon-edit"></i>
+    <span translate="aside.nav.components.form.FORM">Form</span>
+  </a>
     <ul class="nav nav-sub dk">
       <li class="nav-sub-header">
         <a href>
-          <span>Apps</span>
+          <span translate="aside.nav.components.form.FORM">Form</span>
         </a>
       </li>
       <li ui-sref-active="active">
-        <a ui-sref="apps.note">
-          <span>Note</span>
+        <a ui-sref="app.form.elements">
+          <span translate="aside.nav.components.form.FORM_ELEMENTS">Form elements</span>
         </a>
       </li>
       <li ui-sref-active="active">
-        <a ui-sref="apps.contact">
-          <span>Contacts</span>
+        <a ui-sref="app.form.validation">
+          <span translate="aside.nav.components.form.FORM_VALIDATION">Form validation</span>
         </a>
       </li>
       <li ui-sref-active="active">
-        <a ui-sref="app.weather">
-          <span>Weather</span>
+        <a ui-sref="app.form.wizard">
+          <span translate="aside.nav.components.form.FORM_WIZARD">Form wizard</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.fileupload">
+          <span>File upload</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.imagecrop">
+          <span>Image crop</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.select">
+          <span>Select</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.slider">
+          <span>Slider</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.editor">
+          <span>Editor</span>
         </a>
       </li>
     </ul>
-  </li>
-
-  <li class="line dk"></li>
-
-  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-    <span translate="aside.nav.components.COMPONENTS">Components</span>
   </li>
   <li>
     <a href class="auto">      
@@ -142,69 +161,5 @@
       </li>
     </ul>
   </li>
-  <li ng-class="{active:$state.includes('app.form')}">
-    <a href class="auto">
-      <span class="pull-right text-muted">
-        <i class="fa fa-fw fa-angle-right text"></i>
-        <i class="fa fa-fw fa-angle-down text-active"></i>
-      </span>
-      <i class="glyphicon glyphicon-edit"></i>
-      <span translate="aside.nav.components.form.FORM">Form</span>
-    </a>
-    <ul class="nav nav-sub dk">
-      <li class="nav-sub-header">
-        <a href>
-          <span translate="aside.nav.components.form.FORM">Form</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.elements">
-          <span translate="aside.nav.components.form.FORM_ELEMENTS">Form elements</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.validation">
-          <span translate="aside.nav.components.form.FORM_VALIDATION">Form validation</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.wizard">
-          <span translate="aside.nav.components.form.FORM_WIZARD">Form wizard</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.fileupload">
-          <span>File upload</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.imagecrop">
-          <span>Image crop</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.select">
-          <span>Select</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.slider">
-          <span>Slider</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.form.editor">
-          <span>Editor</span>
-        </a>
-      </li>
-    </ul>
-  </li>
-  <li ui-sref-active="active">
-    <a ui-sref="app.chart">
-      <i class="glyphicon glyphicon-signal"></i>
-      <span translate="aside.nav.components.CHART">Chart</span>
-    </a>
-  </li>
-
 </ul>
 <!-- / list -->
