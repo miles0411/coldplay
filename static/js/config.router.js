@@ -139,9 +139,9 @@ angular.module('app')
                         url: '/chart',
                         templateUrl: '/static/templates/ui_chart.html',
                         resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load('static/js/controllers/chart.js');
+                            deps: ['$ocLazyLoad',
+                                function($oocLazyLoad) {
+                                    return $ocLazyLoad.load('static/js/controllers/chart.js');
                                 }
                             ]
                         }
