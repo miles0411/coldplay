@@ -180,7 +180,7 @@ angular.module('app')
                       url: '/grid',
                       templateUrl: '/static/templates/table_grid.html',
                       resolve: {
-                          deps: ['uiLoad', '$ocLazyLoad'
+                          deps: ['uiLoad', '$ocLazyLoad',
                             function(uiLoad){
                               return uiLoad.load('ngGrid').then(
                                   function($ocLazyLoad){
