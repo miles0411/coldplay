@@ -10,10 +10,11 @@
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Personal Dashboard</h1>
           <small class="text-muted">Welcome {{name}}!</small>
+          <small class="text-muted">{{email}}</small>
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
-            <div class="m-b-xs">5<span class="text-muted"> items</span></div>
+            <div class="m-b-xs">5<span class="text-muted"> Diagnosis</span></div>
             <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
               ui-jq="sparkline" 
               ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -21,7 +22,7 @@
             </div>
           </div>
           <div class="inline text-left">
-            <div class="m-b-xs">$3,000 <span class="text-muted">Participants</span></div>
+            <div class="m-b-xs">300 <span class="text-muted">PHRs</span></div>
             <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" 
               ui-jq="sparkline" 
               ui-options="{{data2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
@@ -42,32 +43,32 @@
                 <div class="h1 text-info font-thin h1">{{gender}}</div>
                 <span class="text-muted text-xs">Gender</span>
                 <div class="top text-right w-full">
-                  <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                  <!--  <i class="fa fa-caret-down text-warning m-r-sm"></i>-->
                 </div>
               </div>
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-primary item">
-                <span class="text-white font-thin h1 block">100</span>
-                <span class="text-muted text-xs">Index A</span>
+                <span class="text-white font-thin h1 block">{{birthday}}</span>
+                <span class="text-muted text-xs">Birthday</span>
                 <span class="bottom text-right w-full">
-                  <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                  <!-- <i class="fa fa-cloud-upload text-muted m-r-sm"></i> -->
                 </span>
               </a>
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-info item">
-                <span class="text-white font-thin h1 block">20</span>
-                <span class="text-muted text-xs">Index B</span>
+                <span class="text-white font-thin h1 block">{{timezone}}</span>
+                <span class="text-muted text-xs">TimeZone(UTC)</span>
                 <span class="top text-left">
-                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                  <!-- <i class="fa fa-caret-up text-warning m-l-sm"></i> -->
                 </span>
               </a>
             </div>
             <div class="col-xs-6">
               <div class="panel padder-v item">
-                <div class="font-thin h1">72</div>
-                <span class="text-muted text-xs">Index C</span>
+                <div class="font-thin h1">150 lbs</div>
+                <span class="text-muted text-xs">Weight</span>
                 <div class="bottom text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </div>
@@ -79,8 +80,8 @@
                   <div ng-init="data1=[60,40]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.color.warning}}','#fff']}" class="sparkline inline"></div>
                 </div>
                 <div class="col dk padder-v r-r">
-                  <div class="text-primary-dk font-thin h1"><span>$12,670</span></div>
-                  <span class="text-muted text-xs">Goal, 60% Reached</span>
+                  <div class="text-primary-dk font-thin h1"><span>130 lbs</span></div>
+                  <span class="text-muted text-xs">Goal, 20 lbs to go</span>
                 </div>
               </div>
             </div>
@@ -118,7 +119,7 @@
         <div class="col wrapper">
           <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
           <h4 class="font-thin m-t-none m-b-none text-primary-lt">Engagements</h4>
-          <span class="m-b block text-sm text-muted"> Fans Engagement of this month (updated 1 hour ago)</span>
+          <span class="m-b block text-sm text-muted">Timely report of objective health measurement</span>
           <div ui-jq="plot" ui-options="
             [
               { data: {{pageData.thirtydaysImpression}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
@@ -136,25 +137,25 @@
           </div>
         </div>
         <div class="col wrapper-lg w-lg bg-light dk r-r">
-          <h4 class="font-thin m-t-none m-b">Progress</h4>
+          <h4 class="font-thin m-t-none m-b">Measurement</h4>
           <div class="">
             <div class="">
               <span class="pull-right text-primary">60%</span>
-              <span>Likes</span>
+              <span>A</span>
             </div>
             <progressbar value="60" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
             <div class="">
               <span class="pull-right text-info">35%</span>
-              <span>Fans</span>
+              <span>B</span>
             </div>
             <progressbar value="35" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
             <div class="">
               <span class="pull-right text-warning">25%</span>
-              <span>Budget</span>
+              <span>C</span>
             </div>
             <progressbar value="25" class="progress-xs m-t-sm bg-white" animate="true" type="warning"></progressbar>
           </div>
-          <p class="text-muted">Dales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
+          <p class="text-muted"></p>
         </div>
       </div>
       <!-- / service -->
@@ -168,11 +169,11 @@
             <div class=" m-b">
               <div class="m-b">
                 <span class="label text-base bg-warning pos-rlt m-r"><i class="arrow right arrow-warning"></i> 19:30</span>
-                <a href>Feed cat</a>
+                <a href>Report AAA</a>
               </div>
               <div class="m-b">
                 <span class="label text-base bg-info pos-rlt m-r"><i class="arrow right arrow-info"></i> 12:30</span>
-                <a href>Fishing Time</a>
+                <a href>Meet Doctor Jones</a>
               </div>
               <div class="m-b">
                 <span class="label text-base bg-primary pos-rlt m-r"><i class="arrow right arrow-primary"></i> 10:30</span>

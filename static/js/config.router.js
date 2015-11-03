@@ -36,7 +36,7 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/app/chart');
+                    .otherwise('/app/profile');
                 $stateProvider
                     .state('app', {
                         abstract: true,
@@ -59,7 +59,7 @@ angular.module('app')
                         }
                     })
                     .state('app.profile', {
-                        url: '/profile/',
+                        url: '/profile',
                         templateUrl: '/static/templates/app_dashboard.html',
                         controller: ['$scope', '$stateParams', '$rootScope', '$http', '$state', '$facebook', '$location', '$cacheFactory', function($scope, $stateParams, $rootScope, $http, $state, $facebook, $location, $cacheFactory) {
                         }],
@@ -171,7 +171,7 @@ angular.module('app')
                             function( $ocLazyLoad){
                               return $ocLazyLoad.load('ngImgCrop').then(
                                   function(){
-                                     return $ocLazyLoad.load('js/controllers/imgcrop.js');
+                                     return $ocLazyLoad.load('static/js/controllers/imgcrop.js');
                                   }
                               );
                           }]
@@ -186,7 +186,7 @@ angular.module('app')
                             function( $ocLazyLoad ){
                               return $ocLazyLoad.load('ui.select').then(
                                   function(){
-                                      return $ocLazyLoad.load('js/controllers/select.js');
+                                      return $ocLazyLoad.load('static/js/controllers/select.js');
                                   }
                               );
                           }]
@@ -201,7 +201,7 @@ angular.module('app')
                             function($ocLazyLoad ){
                               return $ocLazyLoad.load('vr.directives.slider').then(
                                   function(){
-                                      return $ocLazyLoad.load('js/controllers/slider.js');
+                                      return $ocLazyLoad.load('static/js/controllers/slider.js');
                                   }
                               );
                           }]
@@ -216,7 +216,7 @@ angular.module('app')
                             function($ocLazyLoad ){
                               return $ocLazyLoad.load('textAngular').then(
                                   function(){
-                                      return $ocLazyLoad.load('js/controllers/editor.js');
+                                      return $ocLazyLoad.load('static/js/controllers/editor.js');
                                   }
                               );
                           }]

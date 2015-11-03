@@ -1,12 +1,12 @@
 <div class="bg-light lter b-b wrapper-md">
-  <h1 class="m-n font-thin h3">Clinical Decision Support</h1>
+  <h1 class="m-n font-thin h3">Visualize the Patient's records</h1>
 </div>
 <div class="wrapper-md">
   <div ng-controller="FlotChartDemoCtrl">
     <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Spline</div>
+          <div class="panel-heading font-bold">Diabetes1</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               [
@@ -34,12 +34,12 @@
       </div>
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Multiple</div>
+          <div class="panel-heading font-bold">Diabetes2</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               [
-                { data: {{d0_1}}, label: 'Unique Visits', points: { show: true } }, 
-                { data: {{d0_2}}, label: 'Page Views', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                { data: {{d0_1}}, label: 'Percentile', points: { show: true } }, 
+                { data: {{d0_2}}, label: 'Group B', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
               ],
               {                
                 colors: [ '{{app.color.info}}','{{app.color.success}}' ],
@@ -58,7 +58,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Order bar</div>
+          <div class="panel-heading font-bold">Group Comparison</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               [ 
@@ -81,7 +81,7 @@
       </div>
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Bar</div>
+          <div class="panel-heading font-bold">Diabetes3</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               [
@@ -103,7 +103,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Compose</div>
+          <div class="panel-heading font-bold">Diabetes4</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               [
@@ -125,7 +125,7 @@
       </div>
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading font-bold">Donut Pie</div>
+          <div class="panel-heading font-bold">Diabetes Pie</div>
           <div class="panel-body">
             <div ui-jq="plot" ui-options="
               {{d3}},
@@ -158,10 +158,10 @@
     </div>
     <div class="col-lg-4">
       <div class="panel panel-default">
-        <div class="panel-heading font-bold">Data graph</div>
+        <div class="panel-heading font-bold">Data Diabetes</div>
         <div class="bg-light dker wrapper m-t-n-xxs">
-          <span class="pull-right">Friday</span>
-          <span class="h4">$540</span>
+          <span class="pull-right">November</span>
+          <span class="h4">540 active patients</span>
           <div class="text-center m-b-n m-t-sm">
               <div ng-init="data2=[50.32,45.23,47.56,36.25,53.85,40.15,41.25,50.15,57.14,36.15,97.26,50.15,45.32,47.19,37.75,25.15,56.34,50.35,47.25,53.15]" ui-jq="sparkline" ui-options="{{data2}}, {type:'line', height:65, width: '100%', lineWidth:2, valueSpots:{'0:':'#fff'}, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:3}"></div>
 
@@ -171,16 +171,16 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-4">
-              <small class="text-muted block">Market</small>
-              <span>$1500.00</span>
+              <small class="text-muted block">Population</small>
+              <span>1500</span>
             </div>
             <div class="col-xs-4">
-              <small class="text-muted block">Referal</small>
-              <span>$600.00</span>
+              <small class="text-muted block">Diagnosed</small>
+              <span>600</span>
             </div>
             <div class="col-xs-4">
-              <small class="text-muted block">Affiliate</small>
-              <span>$400.00</span>
+              <small class="text-muted block">Medication</small>
+              <span>400</span>
             </div>
           </div>
         </div>
@@ -188,21 +188,21 @@
     </div>
     <div class="col-lg-4">
       <div class="panel panel-default">
-        <div class="panel-heading font-bold">Stacked</div>
+        <div class="panel-heading font-bold">Diabetes6</div>
         <div class="panel-body">
           <div class="m-b-md">
-            <p class="h3 font-thin">Investings</p>
-            Avarage investing in last year.
+            <p class="h3 font-thin">Records</p>
+            Avarage number of EHRs in last year.
           </div>
           <div class="row m-b">
             <div class="col-xs-6">
               <div ng-init="data4 = [ [2, 8], [4, 6], [6, 4], [8, 2], [10, 0], [8, 2], [6, 4], [4, 6], [2,8] ]" ui-jq="sparkline" ui-options="{{data4}}, {type:'bar', height:112, barWidth:6, barSpacing:10, stackedBarColor:['{{app.color.success}}', '#d7e5e8']}" class="sparkline inline"></div>
             </div>
             <div class="col-xs-6">
-              Revenue
-              <div class="h3 text-black m-b">4500,00</div>
-              Costs
-              <div class="h3 text-success">3450,00</div>
+              EHRs
+              <div class="h3 text-black m-b">45000</div>
+              Labs result
+              <div class="h3 text-success">12000</div>
             </div>
           </div>
         </div>
@@ -216,8 +216,8 @@
           Easypiechart
         </div>
         <div class="panel-body text-center">
-          <h4>62.5<small> hrs</small></h4>
-          <small class="text-muted block">Updated at 2 minutes ago</small>
+          <h4>15.5<small> response</small></h4>
+          <small class="text-muted block">Slowest 27 hours</small>
           <div class="inline">
             <div ui-jq="easyPieChart" ui-options="{
                       percent: 75,
@@ -230,7 +230,7 @@
                     }">
               <div>
                 <span class="h2 m-l-sm step">75</span>%
-                <div class="text text-sm">new</div>
+                <div class="text text-sm">less than the average response time</div>
               </div>
             </div>
           </div>
@@ -273,8 +273,8 @@
           Rotate
         </div>
         <div class="panel-body text-center">
-          <h4>3,450</h4>
-          <small class="text-muted block">Worldwide visitors</small>
+          <h4>60,450</h4>
+          <small class="text-muted block">Worldwide Physicians</small>
           <div class="inline m-t m-b">
             <div ui-jq="easyPieChart" ui-options="{
                       percent: 50,
@@ -287,13 +287,13 @@
                       lineCap: 'butt'
                     }">
               <div>
-                <span class="h2 m-l-sm step">50</span>%
-                <div class="text text-sm">new visits</div>
+                <span class="h2 m-l-sm step">15</span>%
+                <div class="text text-sm">new %</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="panel-footer"><small>% of avarage rate of the visits</small></div>
+        <div class="panel-footer"><small>new joining in the last 6 months</small></div>
       </div>
     </div>
   </div>

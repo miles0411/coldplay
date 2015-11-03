@@ -24,11 +24,11 @@ app
     }   
 
     $scope.d3 = [ 
-      { label: "iPhone5S", data: 40 }, 
-      { label: "iPad Mini", data: 10 },
-      { label: "iPad Mini Retina", data: 20 },
-      { label: "iPhone4S", data: 12 },
-      { label: "iPad Air", data: 18 }
+      { label: "GroupA", data: 40 }, 
+      { label: "GroupB", data: 10 },
+      { label: "GroupC", data: 20 },
+      { label: "GroupD", data: 12 },
+      { label: "GroupE", data: 18 }
     ];
 
     $scope.refreshData = function(){
