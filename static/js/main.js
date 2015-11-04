@@ -28,15 +28,7 @@ angular.module('app')
                     },
                     function(err) {
                     });
-                /*
-                $facebook.api("/me/accounts?limit=999&access_token="+$rootScope.token).then(
-                  function(response) {
-                      $scope.pages = response.data;
-                      
-                  },
-                  function(err) {
-                      console.log("please login");
-                  });*/
+
                 $location.path('/app/profile')
             } else {
               $location.path('/access/signin');
